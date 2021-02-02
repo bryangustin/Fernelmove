@@ -1,0 +1,22 @@
+{
+  "name": "Fernelmove",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js -e js, ejs"
+  },
+  "author": "Nicolas Chesnel, Bryan Gustin, Yassin Makrai, Sylvain Durant",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "mongoose": "^5.11.14"
+  }
+}
