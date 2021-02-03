@@ -4,7 +4,7 @@
         <h1>Register</h1>
         <%- include ('../partials/messages') %>
 
-        <form class="m-3 review-form-box" id="formRegister" action="/users/register" method="POST">
+        <form class="m-3 review-form-box" id="formRegister" action="/register" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name" class="mb-0">First Name</label>
@@ -14,6 +14,7 @@
                     name="name"
                     placeholder="First Name"
                     value="<%= typeof name != 'undefined' ? name : '' %>"
+                    required
                     />
                 </div>
 
@@ -25,6 +26,7 @@
                     name="lastName"
                     placeholder="Last Name"
                     value="<%= typeof lastName != 'undefined' ? lastName : '' %>"
+                    required
                     />
                 </div>
 
@@ -36,6 +38,7 @@
                     name="email"
                     placeholder="Enter Email"
                     value="<%= typeof email != 'undefined' ? email : '' %>"
+                    required
                     /> 
                 </div>
 
@@ -47,6 +50,7 @@
                     name="password"
                     placeholder="Password"
                     value="<%= typeof password != 'undefined' ? password : '' %>"
+                    required
                     />
                 </div>
 
@@ -58,6 +62,7 @@
                     name="password2"
                     placeholder="Confirm Password"
                     value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+                    required
                     />
                 </div>
             </div>
