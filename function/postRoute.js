@@ -7,7 +7,7 @@ const postRoute = function (app) {
     //sign in
     app.post('/login',(req,res,next)=>{
         passport.authenticate('local',{
-            successRedirect : '/my-account',
+            successRedirect : '/users/my-account',
             failureRedirect : '/users/login',
             failureFlash : true,
         })(req,res,next);
@@ -75,6 +75,13 @@ const postRoute = function (app) {
             })
         }
     });
+
+    // logout
+    app.get('/logout',(req,res)=>{
+        req.logout();
+        req.flash('success_msg','You are logged out');
+        res.redirect('/users/login');
+    })
 
 };
 

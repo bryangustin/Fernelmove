@@ -4,6 +4,7 @@ const port = process.env.PORT || 3000;
 const publicDirectoryPath = path.join(__dirname,'./public');
 const viewsPath = path.join(__dirname, './template/views');
 const passport = require('passport');
+const {ensureAuthenticated} = require("./config/403.js");
 const session = require('express-session');
 const express = require('express');
 const app = express();
@@ -61,6 +62,7 @@ app.use((req,res,next)=> {
 mainRouter(app, '/', 'index');
 mainRouter(app, '/users/login', 'login');
 mainRouter(app, '/users/register', 'register');
+mainRouter(app, '/users/my-account', 'my-account', ensureAuthenticated);
 
 ///// POST Routes /////
 postRouter(app);
