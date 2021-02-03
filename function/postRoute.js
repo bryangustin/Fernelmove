@@ -140,7 +140,7 @@ const postRoute = function (app) {
         if(errors.length > 0 ) {
             res.render('password', {
                 errors : errors,
-                email : email
+                usernameEmail : usernameEmail
             })
         } else { //validation passed
             User.findOne({email : usernameEmail}).exec((err,result)=>{
@@ -150,7 +150,7 @@ const postRoute = function (app) {
                             errors.push({msg: 'Aucun compte ne correspond à cet email ou ce pseudo'});
                             res.render('password', {
                                 errors : errors,
-                                email : email
+                                usernameEmail : usernameEmail
                             })
                         } else { // send mail
                             let user = result;
@@ -193,13 +193,59 @@ const postRoute = function (app) {
                                     success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
                                     res.render('password', {
                                         success_msg: success_msg,
-                                        email : email,
+                                        usernameEmail : usernameEmail,
                                         sent : true
                                     });
                                 });
                             });
                         }
                     })
+                }else{
+                    let user = result;
+        
+                    crypto.randomBytes(20, (err, buf) =>{
+                        let token = buf.toString('hex');
+                        console.log('token: '+token);
+
+                        let expire = Date.now() + 1800000; // 30 minutes
+
+                        // const transporter = nodemailer.createTransport({ // from mail, not working in localhost
+                        //     service: 'Gmail',
+                        //     auth:{
+                        //         user: process.env.MAIL,
+                        //         pass: process.env.PASS
+                        //     }
+                        // });
+
+                        // let mailOptions = {
+                        //     from:'FreshShop',
+                        //     to: email,
+                        //     subject: 'Password Reset',
+                        //     text: 'Hello '+userName+','+'\n\n'+
+                        //     'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
+                        //     'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
+                        //     'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
+                        //     'Thank you and stay FRESH!'
+                        // }
+
+                        // transporter.sendMail(mailOptions, (err, info)=>{
+                        //     if (err){
+                        //         // return console.log(err);
+                        //     }
+                        // });
+
+                        const id = user._id;
+                        User.findByIdAndUpdate(id, { resetPasswordToken: token, resetPasswordExpires: expire}, err => { // add token to the user
+                            if (err) return res.send(500, err);
+
+                            success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
+                            res.render('password', {
+                                success_msg: success_msg,
+                                usernameEmail : usernameEmail,
+                                sent : true
+                            });
+                        });
+                    });
                 }
             })
         } 
@@ -212,19 +258,19 @@ const postRoute = function (app) {
         const token = req.params.token;
 
         if(!password || !password2) {
-            req.flash('error_msg','Il faut remplir tous les champs.')
+            req.flash('error','Il faut remplir tous les champs.')
             return res.redirect(`/resetPassword/${token}`)
         }
 
         //check if match
         if(password !== password2) {
-            req.flash('error_msg',"les mots de passe ne correspondent pas.")
+            req.flash('error',"les mots de passe ne correspondent pas.")
             return res.redirect(`/resetPassword/${token}`)
         }
 
         //check if password is more than 6 characters
         if(password.length < 6 ) {
-            req.flash('error_msg','le mot de passe doit faire minimum 6 caractères.')
+            req.flash('error','le mot de passe doit faire minimum 6 caractères.')
             return res.redirect(`/resetPassword/${token}`)
         }
 
@@ -237,10 +283,9 @@ const postRoute = function (app) {
             User.findOne({resetPasswordToken : token}).exec((err,result)=>{
                 const id = result._id;
 
-                User.findByIdAndUpdate(id, { password: hashedPassword }, err => { // change the user's password
+                User.findByIdAndUpdate(id, { resetPasswordToken: '', password: hashedPassword }, err => { // change the user's password
                     if (err) return res.send(500, err);
-                    user.password = hashedPassword;
-                    req.flash('success_msg','Ton mot de passe a été réinisialisé.')
+                    req.flash('error','Ton mot de passe a été réinisialisé.')
                     res.redirect('/users/login');
                 });
             });

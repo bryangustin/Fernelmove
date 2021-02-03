@@ -1,63 +1,49 @@
-<!-- Register form -->
-<div class="d-flex justify-content-center my-5">
-    <div class="col-6">
-        <h1>Register</h1>
-        <%- include ('../partials/messages') %>
-
-        <form class="m-3 review-form-box" id="formRegister" action="/register" method="POST">
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="name" class="mb-0">Userame</label>
-                    <input
-                    class="form-control"
-                    type="name"
-                    name="name"
-                    placeholder="First Name"
-                    value="<%= typeof name != 'undefined' ? name : '' %>"
-                    required
-                    />
-                </div>
-
-                <div class="form-group col-md-12">
-                    <label for="email" class="mb-0">Email</label>
-                    <input
-                    class="form-control"
-                    type="email"
-                    name="email"
-                    placeholder="Enter Email"
-                    value="<%= typeof email != 'undefined' ? email : '' %>"
-                    required
-                    /> 
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="password" class="mb-0">Password</label>
-                    <input
-                    class="form-control"
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value="<%= typeof password != 'undefined' ? password : '' %>"
-                    required
-                    />
-                </div>
-
-                <div class="form-group col-md-6">
-                    <label for="password2" class="mb-0">Confirm Password</label>
-                    <input
-                    class="form-control"
-                    type="password"
-                    name="password2"
-                    placeholder="Confirm Password"
-                    value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
-                    required
-                    />
-                </div>
-            </div>
-            <button type="submit" class="btn hvr-hover">Register</button>
-        </form>
-
-        <p >Have An Account? <a href="/users/login">Sign in</a></p>
-    </div>
+<div class="row">
+    <h1>INSCRIPTION</h1>
+    <form class="col-4 col-sm-4 col-lg-4">
+        <div class="mb-3 ">
+            <label for="InputUsername" class="form-label">Ton pseudo</label>
+            <input type="text" class="form-control" id="InputUsername" placeholder="Pseudo">
+        </div>
+        <div class="mb-3 ">
+        <label for="InputEmail" class="form-label">Ton adresse Email</label>
+        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="123@.com">
+        <div id="emailHelp" class="form-text">Nous ne partagerons jamais ton adresse Email.</div>
+        </div>
+        <div class="mb-3">
+        <label for="InputPassword" class="form-label">Ton mot de passe</label>
+        <input type="password" class="form-control" id="InputPassword">
+        </div>
+        <div class="mb-3">
+            <label for="InputPasswordConfirmation" class="form-label">Confirme ton mot de passe</label>
+            <input type="password" class="form-control" id="InputPasswordConfirmation">
+            <div id="emailHelp" class="form-text">Ne partage jamais ton mot de passe, Il est privé!</div>
+        </div>
+        <div class="col-6 col-sm-6 col-lg-6">
+            <select class="form-select" aria-label="select gender ">
+                <option selected>ton sexe</option>
+                <option value="boy">Garçon</option>
+                <option value="girl">Fille</option>
+                <option value="nope">Ne veut pas dire</option>
+            </select>
+            <select class="form-select" aria-label="select gender ">
+            <option selected>date de naissance // a faire </option>
+            </select>
+        </div>
+        <input class="form-control" type="text" placeholder="Code Postale" aria-label="Code Postale">
+        
+        <!-- <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="Check1">
+        <label class="form-check-label" for="Check1">souvient toi de moit</label>
+        </div> -->
+        <button type="submit" class="btn btn-primary">ENVOYER</button>
+    </form>
+  </div>
+  <div class="row">
+    <h1>Centre d'intérêt</h1>
+    <i class="fas fa-music"></i>
+    <i class="fas fa-dice"></i>
 </div>
-<!-- End of Register form -->
+</div>
+  
+  
