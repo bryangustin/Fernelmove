@@ -1,14 +1,50 @@
-.mt-index-caroussel{
-    margin-block-start: -56px;
-    z-index: 1;
-}
-.z-index-nav{
-    z-index: 999;
+.img-logo{
+    width: 60px;
+    height: 60px;
 }
 .white{
     color: white !important;
 }
-.Logo_Fernel_Move{
-    width: 50px;
-    height: 50;
+.right-text{
+    text-align: right;
+}
+.vote_activite{
+    margin: auto;
+    margin-top: -100px;
+    z-index: 999;
+    color: white;
+    text-align: center;
+    width: 200px;
+    font-size: 20px;
+}
+.vote_activite a{
+    color: white;
+}
+.vote_activite a:hover{
+    color: red;
+}
+.thumbs-box{
+    display: flex;
+    justify-content: space-around;
+}
+.mt-index-caroussel{
+    z-index: -1;
+}
+.thumbs{
+    font-size: 30px;
+}
+.border-none,
+.border-none:focus,
+.border-none:active{
+    border: none;
+    box-shadow: none;
+}
+.box-text-img{
+    width: 80vw;
+    position: absolute;
+    z-index: 999;
+    left: 40px;
+    color: white;
+    margin-block-start: -250px;
+
 }
