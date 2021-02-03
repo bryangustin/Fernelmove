@@ -1,0 +1,23 @@
+#quiz img{
+    width:40%
+}
+#quiz p{
+    position: relative;
+    width: 30%;
+    margin: -24% 0 0 24%;
+}
+
+#prof{
+    margin: 100px 0 0 43%;
+}
+
+#bulle{
+    transform: rotate(180deg);
+    margin: -21% 0 0 16%;
+}
+
+
+
+/* @media only screen and (max-width: 551px) {
+ 
+} */
