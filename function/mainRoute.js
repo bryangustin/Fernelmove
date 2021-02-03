@@ -6,7 +6,9 @@ const mainRoute = function (app, route, file, log) {
     
     if (log === 'logged') {
         app.get(route, ensureAuthenticated, (req, res) => {
-            res.render(file)
+            res.render(file, {
+                user : req.user
+            })
         })
     } else if (log === 'reset'){
         app.get(route, (req, res) => {
@@ -25,7 +27,9 @@ const mainRoute = function (app, route, file, log) {
         })
     } else {
         app.get(route, (req, res) => {
-            res.render(file)
+            res.render(file, {
+                user : req.user
+            })
         })
     }
 }

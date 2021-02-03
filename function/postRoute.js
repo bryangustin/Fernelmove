@@ -35,6 +35,7 @@ const postRoute = function (app) {
 
         if(errors.length > 0 ) {
             res.render('register', {
+                user : req.user,
                 errors : errors,
                 name : name,
                 email : email,
@@ -47,6 +48,7 @@ const postRoute = function (app) {
                 if(user) {
                     errors.push({msg: 'Un compte existe déjà avec cet email.'});
                     res.render('register', {
+                        user : req.user,
                         errors : errors,
                         name : name,
                         email : email
@@ -57,6 +59,7 @@ const postRoute = function (app) {
                         if(user) {
                             errors.push({msg: 'Ce pseudo est déjâ pris.'});
                             res.render('register', {
+                                user : req.user,
                                 errors : errors,
                                 name : name,
                                 email : email
@@ -117,6 +120,7 @@ const postRoute = function (app) {
 
             if(errors.length > 0 ) {
                 res.render('my-account', {
+                    user : req.user,
                     errors : errors
                 })
             }
@@ -139,6 +143,7 @@ const postRoute = function (app) {
 
         if(errors.length > 0 ) {
             res.render('password', {
+                user : req.user,
                 errors : errors,
                 usernameEmail : usernameEmail
             })
@@ -149,6 +154,7 @@ const postRoute = function (app) {
                         if(!result) {
                             errors.push({msg: 'Aucun compte ne correspond à cet email ou ce pseudo'});
                             res.render('password', {
+                                user : req.user,
                                 errors : errors,
                                 usernameEmail : usernameEmail
                             })
@@ -192,6 +198,7 @@ const postRoute = function (app) {
         
                                     success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
                                     res.render('password', {
+                                        user : req.user,
                                         success_msg: success_msg,
                                         usernameEmail : usernameEmail,
                                         sent : true
@@ -240,6 +247,7 @@ const postRoute = function (app) {
 
                             success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
                             res.render('password', {
+                                user : req.user,
                                 success_msg: success_msg,
                                 usernameEmail : usernameEmail,
                                 sent : true
