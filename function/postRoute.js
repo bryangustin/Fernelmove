@@ -16,10 +16,10 @@ const postRoute = function (app) {
 
     //Register
     app.post('/register',(req,res)=>{
-        const {name,email, password, password2} = req.body;
+        const {name,email, password, password2, sexe, postalCode} = req.body;
         let errors = [];
-
-        if(!name || !email || !password || !password2) {
+        console.log(sexe);
+        if(!name || !email || !password || !password2 || !sexe || !postalCode) {
             errors.push({msg : "Il faut remplir tous les champs."})
         }
 
@@ -40,7 +40,9 @@ const postRoute = function (app) {
                 name : name,
                 email : email,
                 password : password,
-                password2 : password2
+                password2 : password2,
+                sexe : sexe,
+                postalCode : postalCode
             })
         } else { //validation passed
             User.findOne({email : email}).exec((err,user)=>{
@@ -51,7 +53,11 @@ const postRoute = function (app) {
                         user : req.user,
                         errors : errors,
                         name : name,
-                        email : email
+                        email : email,
+                        password : password,
+                        password2 : password2,
+                        sexe : sexe,
+                        postalCode : postalCode
                     })
                 } else {
                     User.findOne({name : name}).exec((err,user)=>{
@@ -62,13 +68,19 @@ const postRoute = function (app) {
                                 user : req.user,
                                 errors : errors,
                                 name : name,
-                                email : email
+                                email : email,
+                                password : password,
+                                password2 : password2,
+                                sexe : sexe,
+                                postalCode : postalCode
                             })
                         } else {
                             const newUser = new User({
                                 name : name,
                                 email : email,
-                                password : password
+                                password : password,
+                                sexe : sexe,
+                                postalCode : postalCode
                             });
                 
                             //hash password
