@@ -1,0 +1,38 @@
+<!-- Login form -->
+<div class="d-flex justify-content-center my-5">
+    <div class="col-4">
+        <h1> Login </h1>
+        <%- include ('../partials/messages') %>
+
+        <form class="m-3 review-form-box" id="formRegister" action="/login" method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                    <label for="email" class="mb-0">Email</label>
+                    <input
+                    class="form-control"
+                    type="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    value="<%= typeof email != 'undefined' ? email : '' %>"
+                    required
+                    />
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label for="password" class="mb-0">Password</label>
+                    <input
+                    class="form-control"
+                    type="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    required
+                    />
+                </div>
+            </div>
+            <button type="submit" class="btn hvr-hover">Sign in</button>
+            <a href="/password" class="btn hvr-hover">Forgot Password?</a>
+        </form>
+        <p>No account yet? <a href="/users/register">register here.</a></p>
+    </div>
+</div>
+<!-- End of Login form -->
