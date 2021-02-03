@@ -1,23 +1,22 @@
 <div class="row">
-    
-    <form class="col-6 col-sm-4 col-lg-4 m-auto">
+    <form action="/register" method="POST" class="col-4 col-sm-4 col-lg-4">
         <h1>INSCRIPTION</h1>
         <div class="mb-3 ">
             <label for="InputUsername" class="form-label">Ton pseudo</label>
-            <input type="text" class="form-control" id="InputUsername" placeholder="Pseudo">
+            <input type="text" class="form-control" name="name" id="InputUsername" placeholder="Pseudo">
         </div>
         <div class="mb-3 ">
         <label for="InputEmail" class="form-label">Ton adresse Email</label>
-        <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="123@.com">
+        <input type="email" class="form-control" name="email" id="InputEmail" aria-describedby="emailHelp" placeholder="123@.com">
         <div id="emailHelp" class="form-text">Nous ne partagerons jamais ton adresse Email.</div>
         </div>
         <div class="mb-3">
         <label for="InputPassword" class="form-label">Ton mot de passe</label>
-        <input type="password" class="form-control" id="InputPassword">
+        <input type="password" name="password" class="form-control" id="InputPassword">
         </div>
         <div class="mb-3">
             <label for="InputPasswordConfirmation" class="form-label">Confirme ton mot de passe</label>
-            <input type="password" class="form-control" id="InputPasswordConfirmation">
+            <input type="password" class="form-control" name="password2" id="InputPasswordConfirmation">
             <div id="emailHelp" class="form-text">Ne partage jamais ton mot de passe, Il est privé!</div>
         </div>
         <div class="col-6 col-sm-6 col-lg-6 m-auto">
