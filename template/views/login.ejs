@@ -1,15 +1,15 @@
 <div class="row login-box">
-    <form class="col-6 col-sm-4 col-lg-4 m-auto">
+    <form class="col-6 col-sm-4 col-lg-4 m-auto" method="POST" action="/login">
         <h1>LOGIN</h1>
      
         <div class="mb-3 ">
             <label for="InputUsername" class="form-label">Ton pseudo</label>
-            <input type="text" class="form-control" id="InputUsername" placeholder="Pseudo">
+            <input type="text" class="form-control" name="usernameEmail" id="InputUsername" placeholder="Pseudo">
         </div>
         
         <div class="mb-3">
         <label for="InputPassword" class="form-label">Ton mot de passe</label>
-        <input type="password" class="form-control" id="InputPassword" placeholder="Mot de passe">
+        <input type="password" class="form-control" name="password" id="InputPassword" placeholder="Mot de passe">
         </div>
 
         <div class="mb-3 form-check">
