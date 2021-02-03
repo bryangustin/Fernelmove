@@ -7,8 +7,11 @@ const passport = require('passport');
 const session = require('express-session');
 const express = require('express');
 const app = express();
+
 const mainRouter = require('./function/mainRoute');
 const postRouter = require('./function/postRoute');
+const commentaireRouter = require('./function/commentaireRoute');
+
 const expressEjsLayout = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const dotenv = require("dotenv");
@@ -72,10 +75,13 @@ mainRouter(app, '/', 'index');
 mainRouter(app, '/users/login', 'login');
 mainRouter(app, '/users/register', 'register');
 mainRouter(app, '/users/my-account', 'my-account', 'logged');
+mainRouter(app, '/commentaire', 'commentaire');
 
 
 ///// POST Routes /////
 postRouter(app);
+commentaireRouter(app);
+
 
 
 app.listen(port, () => {
@@ -84,7 +90,8 @@ app.listen(port, () => {
 
 
 
+
 //Test package filtre insulte
 //==============================================================
 
-console.log(leoProfanity.clean(`espece d'enfoiré, putin de m3rd3, ça me casse les c0uilles`));
+// console.log(leoProfanity.clean(`<badword>`));
