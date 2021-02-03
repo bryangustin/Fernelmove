@@ -19,17 +19,17 @@ const postRoute = function (app) {
         let errors = [];
 
         if(!name || !lastName || !email || !password || !password2) {
-            errors.push({msg : "Please, fill in all fields"})
+            errors.push({msg : "Il faut remplir tous les champs."})
         }
 
         //check if match
         if(password !== password2) {
-            errors.push({msg : "passwords don't match"});
+            errors.push({msg : "les mots de passe ne correspondent pas."});
         }
 
         //check if password is more than 6 characters
         if(password.length < 6 ) {
-            errors.push({msg : 'password must be at least 6 characters'})
+            errors.push({msg : 'le mot de passe doit faire minimum 6 caractères.'})
         }
 
         if(errors.length > 0 ) {
@@ -45,7 +45,7 @@ const postRoute = function (app) {
             User.findOne({email : email}).exec((err,user)=>{
   
                 if(user) {
-                    errors.push({msg: 'email already registered'});
+                    errors.push({msg: 'Un compte existe déjà avec cet email.'});
                     res.render('register', {
                         errors : errors
                     })
@@ -66,7 +66,7 @@ const postRoute = function (app) {
 
                         .then(() => {
                             req.logout();
-                            req.flash('success_msg','Register Successful');
+                            req.flash('success_msg','compte enregistré!');
                             res.redirect('/users/login');
                         })
                         .catch(value => console.log(value));                      
@@ -79,7 +79,7 @@ const postRoute = function (app) {
     // logout
     app.get('/logout',(req,res)=>{
         req.logout();
-        req.flash('success_msg','You are logged out');
+        req.flash('success_msg','Tu es déconnecté.');
         res.redirect('/users/login');
     })
 
@@ -90,14 +90,14 @@ const postRoute = function (app) {
         
         bcrypt.compare(password, req.user.password, function(err, result) {
             if(result === false){
-                errors.push({msg : "Wrong password."})
+                errors.push({msg : "Mot de passe incorrect."})
             
             } else { // delete Account
                 const id = req.user._id;
                 User.findByIdAndDelete(id, err => { // update the user's email
                     if (err) return res.send(500, err);
                     req.logout();
-                    req.flash('success_msg','Your Account has been deleted');
+                    req.flash('success_msg','Ton compte a été suprimé.');
                     res.redirect('/users/login');
                 });
             }
