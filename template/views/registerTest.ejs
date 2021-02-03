@@ -1,0 +1,63 @@
+<!-- Register form -->
+<div class="d-flex justify-content-center my-5">
+    <div class="col-6">
+        <h1>Register</h1>
+        <%- include ('../partials/messages') %>
+
+        <form class="m-3 review-form-box" id="formRegister" action="/register" method="POST">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name" class="mb-0">Userame</label>
+                    <input
+                    class="form-control"
+                    type="name"
+                    name="name"
+                    placeholder="First Name"
+                    value="<%= typeof name != 'undefined' ? name : '' %>"
+                    required
+                    />
+                </div>
+
+                <div class="form-group col-md-12">
+                    <label for="email" class="mb-0">Email</label>
+                    <input
+                    class="form-control"
+                    type="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    value="<%= typeof email != 'undefined' ? email : '' %>"
+                    required
+                    /> 
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="password" class="mb-0">Password</label>
+                    <input
+                    class="form-control"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value="<%= typeof password != 'undefined' ? password : '' %>"
+                    required
+                    />
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="password2" class="mb-0">Confirm Password</label>
+                    <input
+                    class="form-control"
+                    type="password"
+                    name="password2"
+                    placeholder="Confirm Password"
+                    value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+                    required
+                    />
+                </div>
+            </div>
+            <button type="submit" class="btn hvr-hover">Register</button>
+        </form>
+
+        <p >Have An Account? <a href="/users/login">Sign in</a></p>
+    </div>
+</div>
+<!-- End of Register form -->
