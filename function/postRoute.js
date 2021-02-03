@@ -66,7 +66,7 @@ const postRoute = function (app) {
 
                         .then(() => {
                             req.logout();
-                            // req.flash('success_msg','Register Successful');
+                            req.flash('success_msg','Register Successful');
                             res.redirect('/users/login');
                         })
                         .catch(value => console.log(value));                      

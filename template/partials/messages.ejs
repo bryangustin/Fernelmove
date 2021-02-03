@@ -3,3 +3,9 @@
         <p><%= errors[0].msg %></p>
     </div>
 <% } %>
+
+<% if(error != '') { %>
+    <div class="alert alert-danger" role="alert">
+        <p><%= error %></p> 
+    </div>
+<% } %>
