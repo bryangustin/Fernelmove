@@ -1,0 +1,15 @@
+#quizz img{
+    width:40%
+}
+#prof{
+    margin: 13% 40%;
+}
+#bulle{
+    transform: rotate(180deg);
+    position: absolute;
+    top: 25%;
+    left: 11%;
+}
+body{
+    background: rgb(122, 119, 119)
+}
