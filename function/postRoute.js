@@ -83,6 +83,35 @@ const postRoute = function (app) {
         res.redirect('/users/login');
     })
 
+    //Delete Account
+    app.post('/delete',(req,res)=>{
+        const {password} = req.body;
+        let errors = [];
+        
+        bcrypt.compare(password, req.user.password, function(err, result) {
+            if(result === false){
+                errors.push({msg : "Wrong password."})
+            
+            } else { // delete Account
+                const id = req.user._id;
+                User.findByIdAndDelete(id, err => { // update the user's email
+                    if (err) return res.send(500, err);
+                    req.logout();
+                    req.flash('success_msg','Your Account has been deleted');
+                    res.redirect('/users/login');
+                });
+            }
+
+            if(errors.length > 0 ) {
+                res.render('my-account', {
+                    user : req.user,
+                    errors : errors,
+                    page : ''
+                })
+            }
+        });
+    });
+
 };
 
 module.exports = postRoute
