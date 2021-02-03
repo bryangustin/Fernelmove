@@ -1,1 +1,10 @@
-
+.mt-index-caroussel{
+    margin-block-start: -56px;
+    z-index: 1;
+}
+.z-index-nav{
+    z-index: 999;
+}
+.white{
+    color: white !important;
+}
