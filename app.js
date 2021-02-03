@@ -12,11 +12,21 @@ const postRouter = require('./function/postRoute');
 const expressEjsLayout = require('express-ejs-layouts');
 const flash = require('connect-flash');
 const dotenv = require("dotenv");
-
+const bodyParser = require('body-parser');
 dotenv.config();
 
+//Test package filtre insulte:
+var leoProfanity = require('leo-profanity');
+var frenchBadwordsList = require('french-badwords-list');
+ 
+leoProfanity.clearList();
+leoProfanity.add(frenchBadwordsList.array);
+//==============================================================
+
+
 ///// BodyParser /////
-app.use(express.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 ///// Mongoose /////
 mongoose.connect(process.env.MONGODB_URL, {
@@ -33,7 +43,7 @@ app.set('view engine','ejs');
 app.use(expressEjsLayout);
 
 app.set('views', viewsPath);
-app.use(express.static(publicDirectoryPath));
+app.use(express.static(publicDirectoryPath));  //CSS + JS
 app.set('layout', '../layout');
 
 ///// express session /////
@@ -63,6 +73,7 @@ mainRouter(app, '/users/login', 'login');
 mainRouter(app, '/users/register', 'register');
 mainRouter(app, '/users/my-account', 'my-account', 'logged');
 
+
 ///// POST Routes /////
 postRouter(app);
 
@@ -70,3 +81,10 @@ postRouter(app);
 app.listen(port, () => {
     console.log(`Server up on port ${port}`);
 });
+
+
+
+//Test package filtre insulte
+//==============================================================
+
+console.log(leoProfanity.clean(`espece d'enfoiré, putin de m3rd3, ça me casse les c0uilles`));
