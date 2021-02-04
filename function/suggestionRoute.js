@@ -1,10 +1,10 @@
-//Commentaire:
-const Commentaire = require("../models/commentaire");
+//Suggestion:
+const Suggestion = require("../models/suggestion");
 
 //MAIL
 const nodemailer = require("nodemailer");
 
-const commentaireRoute = function (app) {
+const suggestionRoute = function (app) {
 
 //Filtre insulte:
 var leoProfanity = require('leo-profanity');
@@ -19,7 +19,7 @@ leoProfanity.add(frenchBadwordsList.array);
 
 //==============================================================
 
-    app.post('/commentaire',(req,res)=>{
+    app.post('/suggestion',(req,res)=>{
         console.log(req.body);
 
         const transporter = nodemailer.createTransport({
@@ -34,7 +34,7 @@ leoProfanity.add(frenchBadwordsList.array);
             from: process.env.MAIL,
             to: "makrai.yassin@gmail.com",
             subject: `Message de ${"req.body.pseudo"}`,
-            text: leoProfanity.clean(`${req.body.commentaire}`),
+            text: leoProfanity.clean(`${req.body.suggestion}`),
         }, function (error, info) {
             if (error) {
                 console.log(error);
@@ -43,14 +43,14 @@ leoProfanity.add(frenchBadwordsList.array);
             }
         });
     
-        let commentaire = new Commentaire({
-            commentaire : leoProfanity.clean(`${req.body.commentaire}`)
+        let suggestion = new Suggestion({
+            suggestion : leoProfanity.clean(`${req.body.suggestion}`)
         })
 
-        commentaire.save()
+        suggestion.save()
 
         res.redirect('back');
     })
 }
 
-module.exports = commentaireRoute
+module.exports = suggestionRoute
