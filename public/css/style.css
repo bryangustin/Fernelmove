@@ -9,13 +9,14 @@
     text-align: right;
 }
 .vote_activite{
-    margin: auto;
+    margin: 0 25%;
     margin-top: -100px;
     z-index: 999;
     color: white;
     text-align: center;
     width: 200px;
     font-size: 20px;
+    position: absolute;
 }
 .vote_activite a{
     color: white;
@@ -72,4 +73,7 @@
     height: 40%;
     width: 100%;
     margin: auto;
+}
+.carousel-item img{
+    height: 810px;
 }
