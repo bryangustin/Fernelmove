@@ -6,6 +6,19 @@ const nodemailer = require("nodemailer");
 
 const commentaireRoute = function (app) {
 
+//Filtre insulte:
+var leoProfanity = require('leo-profanity');
+var frenchBadwordsList = require('french-badwords-list');
+ 
+leoProfanity.clearList();
+leoProfanity.add(frenchBadwordsList.array);
+//==============================================================
+
+//Test package filtre insulte
+// console.log(leoProfanity.clean(`<badword>`));
+
+//==============================================================
+
     app.post('/commentaire',(req,res)=>{
         console.log(req.body);
 
@@ -21,7 +34,7 @@ const commentaireRoute = function (app) {
             from: process.env.MAIL,
             to: "makrai.yassin@gmail.com",
             subject: `Message de ${"req.body.pseudo"}`,
-            text: req.body.commentaire,
+            text: leoProfanity.clean(`${req.body.commentaire}`),
         }, function (error, info) {
             if (error) {
                 console.log(error);
@@ -31,7 +44,7 @@ const commentaireRoute = function (app) {
         });
     
         let commentaire = new Commentaire({
-            commentaire : req.body.commentaire
+            commentaire : leoProfanity.clean(`${req.body.commentaire}`)
         })
 
         commentaire.save()

@@ -18,13 +18,6 @@ const dotenv = require("dotenv");
 const bodyParser = require('body-parser');
 dotenv.config();
 
-//Test package filtre insulte:
-var leoProfanity = require('leo-profanity');
-var frenchBadwordsList = require('french-badwords-list');
- 
-leoProfanity.clearList();
-leoProfanity.add(frenchBadwordsList.array);
-//==============================================================
 
 
 ///// BodyParser /////
@@ -94,6 +87,3 @@ app.listen(port, () => {
 
 
 
-//==============================================================
-//Test package filtre insulte
-// console.log(leoProfanity.clean(`<badword>`));
