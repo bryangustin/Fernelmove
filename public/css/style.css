@@ -41,13 +41,15 @@
     box-shadow: none;
 }
 .box-text-img{
+    border-radius: 15px;
+    background: #6a676778;
+    padding: 10px;
     width: 80vw;
     position: absolute;
     z-index: 999;
     left: 40px;
     color: white;
-    margin-block-start: -290px;
-}
+    margin-block-start: -320px;}
 .date-activity,
 .lieu-activity,
 .img-text-index{
@@ -88,5 +90,9 @@
 }
 .size-img-cinema{
     width: 145% !important;
+}
+
+.carousel-inner img{
+    height: 812px;
 }
 
