@@ -19,7 +19,7 @@
     </div>
   </div> -->
 <div class="avatar" style="z-index:99; position: absolute; left: 30%; top: 10%;">
-    <img src="/images/poppies-4971583_1920.jpg" style="position: relative; border-radius:50%; margin: auto; width: 150px; height: 150px;" class="d-block" alt="...">
+    <img src="/images/garcon.jpg" style="position: relative; border-radius:50%; margin: auto; width: 150px; height: 150px;" class="d-block" alt="...">
     <p id="avatarScore" style="position: absolute; top: 50%; left: 50%;">1</p>
 </div>
   <div id="carouselExampleCaptions" class="carousel slide mt-index-caroussel" style="z-index: 1;" data-bs-ride="carousel">
@@ -34,7 +34,9 @@
         <div class="box-text-img">
             <h2 class="img-titre-index">Dans quel club de foot évolue le Fernelmontois Samuel Bastien ?</h2>
             <button>Cortil-Wodon</button>
+            <br>
             <button>Royal Excel Mouscron</button>
+            <br>
             <button>Standard de Liège</button>
         </div>
     </div>
@@ -43,7 +45,9 @@
         <div class="box-text-img">
             <h2 class="img-titre-index">Dans quel village pourras-tu profiter de cette aire multisports ?</h2>
             <button>Cortil-Wodon</button>
+            <br>
             <button>Forville</button>
+            <br>
             <button>Marchovelette</button>
         </div>
     </div>
@@ -52,9 +56,30 @@
         <div class="box-text-img">
             <h2 class="img-titre-index">La Commune de Fernelmont a-t-elle un compte Instagram ?</h2>
             <button>Oui</button>
+            <br>
             <button>Non</button>
         </div>
     </div>
     </div>
     
 </div>
+<script language="javascript">
+    var x = 0;
+
+    function hola(x) {
+        if(x == 0) {
+            document.getElementById("cont1").style.visibility="hidden";
+            document.getElementById("cont2").style.visibility="hidden";
+        }
+
+        if(x == 1) {
+            document.getElementById("cont1").style.visibility="visible";
+            document.getElementById("cont2").style.visibility="hidden"; 
+        }
+
+        if(x == 2)  {
+            document.getElementById("cont1").style.visibility="hidden";
+            document.getElementById("cont2").style.visibility="visible"; 
+        }
+    }
+</script>
