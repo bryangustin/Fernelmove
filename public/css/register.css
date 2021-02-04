@@ -349,3 +349,16 @@ width: 40%;
     color: #62C2E4;
     text-shadow: none;
   } 
+
+
+
+  .interet{
+    /* margin: 0 auto; */
+    text-align: center;
+    padding-top:10px;
+  }
+
+  .interet a{
+    margin: 10px;
+    width: 100%;
+  }
