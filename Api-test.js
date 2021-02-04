@@ -21,7 +21,7 @@ const livres = "/records/1.0/search/?dataset=boites-a-livres&q=" //GEO
 //     console.log(data)
 // })
 
-fetch(url+convivialite)
+fetch(url+ecoles)
 .then(response => response.json())
 .then(data => {
     lieu = []
