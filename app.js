@@ -69,7 +69,9 @@ mainRouter(app, '/password', 'password');
 mainRouter(app, '/resetPassword/:token', 'resetPassword', 'reset');
 mainRouter(app, '/users/login', 'login');
 mainRouter(app, '/users/register', 'register');
-mainRouter(app, '/users/my-account', 'my-account', 'logged');
+mainRouter(app, '/users/my-account', 'my-account', 
+// 'logged'
+);
 mainRouter(app, '/commentaire', 'commentaire');
 mainRouter(app, '/activity', 'activity');
 mainRouter(app, '/quiz', 'quiz');
