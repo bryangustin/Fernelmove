@@ -1,11 +1,26 @@
 <!-- commentaire form -->
+
 <div class="d-flex justify-content-center my-5">
-    <div class="col-4">
-        <h1> commentaire </h1>
+    <form class="col-6 col-sm-4 col-lg-4 m-auto" method="POST" action="/commentaire">
+            <h1>SUGGESTION</h1>
         <form action="/commentaire" method="post">
-            <textarea name="commentaire" id="" cols="30" rows="10"></textarea>
-            <input type="submit" value="">
+            <select name="commentaireTitle" id="">
+                <option value="">Musique</option>
+                <option value="">Jeux vidéo</option>
+                <option value="">Jeux de société</option>
+                <option value="">Cinema</option>
+                <option value="">Livre</option>
+                <option value="">Scout</option>
+                <option value="">Art</option>
+                <option value="">Technologie</option>
+                <option value="">Devoir</option>
+            </select>
+            <input type="text" name="" id="" placeholder="Titre de ton activité">
+            <textarea name="commentaire" id="" cols="30" rows="10" placeholder="Propose une activité..."></textarea>
+            <button type="submit" class="btn btn-primary m-auto">ENVOYER</button>
         </form>
     </div>
 </div>
 <!-- End of Login form -->
+<div class="row login-box">
+  

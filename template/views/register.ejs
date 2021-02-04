@@ -1,5 +1,5 @@
 <div class="row">
-    <form class="col-4 col-sm-4 col-lg-4" action="/register" method="POST">
+    <form class="col-6 col-sm-4 col-lg-4 m-auto" action="/register" method="POST">
         <h1>INSCRIPTION</h1>
         <div class="mb-3 ">
             <%- include ('../partials/messages') %>
@@ -19,7 +19,7 @@
             <label for="InputPasswordConfirmation" class="form-label">Confirme ton mot de passe</label>
             <input type="password" class="form-control" id="InputPasswordConfirmation"  name="password2" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required>
             <div id="emailHelp" class="form-text">Ne partage jamais ton mot de passe, Il est privé!</div>
-        </div>
+        </div> 
         <div class="col-6 col-sm-6 col-lg-6 m-auto select-box">
             <select class="form-select" aria-label="select gender " name="sexe" value="<%= typeof sexe != 'undefined' ? sexe : '' %>" required>
                 <option selected value="">Sexe</option>
@@ -27,9 +27,13 @@
                 <option value="girl">F</option>
                 <option value="nope">X</option>
             </select>
-            <select class="form-select DDN" aria-label="select gender ">
-            <option selected>D.D.N</option>
-            </select>
+            <div class="form-group row">
+                <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                <div class="col-10">
+                  <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                </div>
+              </div>
+            
         </div>
         <input class="form-control code-postale" type="text" placeholder="Code Postale" aria-label="Code Postale" type="number" name="postalCode" value="<%= typeof postalCode != 'undefined' ? postalCode : '' %>" required>
         <button type="submit" class="btn btn-primary m-auto">ENVOYER</button>
@@ -37,13 +41,24 @@
     <div class="row ">
         <div class="col-6 col-sm-4 col-lg-4 m-auto"></form>
         <h1>Centre d'intérêt</h1>
-        <i class="fas fa-music"></i>
-        <i class="fas fa-dice"></i>
-        <i class="fas fa-film"></i>
-        <i class="fas fa-book-reader"></i>
-        <i class="fas fa-campground"></i>
-        <i class="fas fa-paint-brush"></i>
-        <i class="fas fa-paint-brush"></i>
+        <div class="parent"> 
+            <div class="music"><i class="fas fa-music"></i></div> 
+            <div class="jeux"><i class="fas fa-dice"></i></div> 
+            <div class="film"><i class="fas fa-film"></i></div> 
+            <div class="livre"><i class="fas fa-book-reader"></i></div> 
+            <div class="scout"><i class="fas fa-campground"></i></div> 
+            <div class="art"><i class="fas fa-paint-brush"></i></div> 
+            <div class="sport"><i class="fas fa-paint-brush"></i></div> 
+            <div class="div8">div 8</div> 
+            <div class="div9">div 9</div> 
+            </div>
+        
+        
+        
+        
+        
+        
+        
         <!--  select?
         <a href="#" class="menu-item item-1"><i class="fas fa-music"></i></a>
         <a href="#" class="menu-item item-2"><i class="fas fa-dice"></i></a>
