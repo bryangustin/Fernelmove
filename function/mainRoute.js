@@ -26,10 +26,17 @@ const mainRoute = function (app, route, file, log) {
                 })
             });
         })
-    } else {
+    } else if (log === 'popOver') {
         app.get(route, (req, res) => {
             res.render(file, {
                 user : req.user,
+                popOver : true
+            })
+        })
+    } else {
+        app.get(route, (req, res) => {
+            res.render(file, {
+                user : req.user
             })
         })
     }

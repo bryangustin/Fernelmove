@@ -1,31 +1,4 @@
-<% console.log(user); %> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<% console.log(user.name); %> 
 
 <div class="row">
         
@@ -39,15 +12,15 @@
         </div> -->
         <div class="mb-3 ">
             <label for="InputUsername" class="form-label">Ton pseudo</label>
-            <input type="text" class="form-control" id="InputUsername" placeholder="Pseudo">
+            <input type="text" class="form-control" id="InputUsername" placeholder="<%= user.name %>">
         </div>
         <div class="mb-3 ">
             <label for="InputEmail" class="form-label">Ton adresse Email</label>
-            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="123@.com">
+            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="<%= user.email %>">
         </div>
         <div class="mb-3">
             <label for="InputText" class="form-label">statut</label>
-            <input type="text" class="form-control" id="InputText" placeholder="statut">
+            <input type="text" class="form-control" id="InputText" placeholder="<%= (typeof statut != 'undefined') ? user.statut : 'statut' %> ">
         </div>
     
     <div class="row ">
