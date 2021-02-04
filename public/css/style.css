@@ -65,3 +65,11 @@
     text-decoration: none;
     font-size: 14px;
 }
+.img-activity{
+    background-image: url("/images/poppies-4971583_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40%;
+    width: 100%;
+    margin: auto;
+}

@@ -1,0 +1,10 @@
+.test{
+    /* margin-top: -0.25rem !important; */
+    width: 100%;
+    height: 100%;
+    /* margin-bottom: -10rem !important; */
+    background-size: cover;
+    background-image: url("../images/poppies-4971583_1920.jpg");
+    background-repeat: no-repeat;
+    /* background-position: ; */
+  }
