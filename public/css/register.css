@@ -37,7 +37,7 @@ width: 40%;
 
 
 
-/* .menu-open-button {
+ .menu-open-button {
     background: #EEEEEE;
     border-radius: 100%;
     width: 80px;
@@ -184,7 +184,7 @@ width: 40%;
   } */
 
 /**********************************************************/
-/* .menu-item {
+ .menu-item {
     background: #EEEEEE;
     border-radius: 100%;
     width: 80px;
@@ -203,13 +203,13 @@ width: 40%;
   }
   
   .menu {
-    margin: auto; */
+    margin: auto; 
     /* position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0; */
-    /* width: 80px;
+     width: 80px;
     height: 80px;
     text-align: center;
     box-sizing: border-box;
@@ -320,4 +320,4 @@ width: 40%;
   .item-6:hover {
     color: #62C2E4;
     text-shadow: none;
-  } */
+  } 
