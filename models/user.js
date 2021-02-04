@@ -21,7 +21,7 @@ const UserSchema  = new mongoose.Schema({
 
     birthday :{
         type : Date,
-        required : true
+        // required : true
     },
 
     postalCode :{

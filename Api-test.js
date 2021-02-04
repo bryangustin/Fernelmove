@@ -2,9 +2,9 @@ const  url = "http://www.odwb.be/api";
 const fernelmont = "/datasets/1.0/search/?q="
 const sport = "/records/1.0/search/?dataset=sports&q="
 const associations = "/records/1.0/search/?dataset=associations&q="
-const convivialite = "/records/1.0/search/?dataset=lieux-de-convivialite-fernelmont&q="
-const ecoles = "/records/1.0/search/?dataset=ecoles-de-fernelmont&q="
-const livres = "/records/1.0/search/?dataset=boites-a-livres&q="
+const convivialite = "/records/1.0/search/?dataset=lieux-de-convivialite-fernelmont&q=" // GEO
+const ecoles = "/records/1.0/search/?dataset=ecoles-de-fernelmont&q=" // GEO
+const livres = "/records/1.0/search/?dataset=boites-a-livres&q=" //GEO
 
 // const musique =
 // const cinema =
@@ -15,13 +15,13 @@ const livres = "/records/1.0/search/?dataset=boites-a-livres&q="
 // const art =
 // const internet =
 
-fetch(url+fernelmont)
-.then(response => response.json())
-.then(data => {
-    console.log(data)
-})
+// fetch(url+fernelmont)
+// .then(response => response.json())
+// .then(data => {
+//     console.log(data)
+// })
 
-fetch(url+sport)
+fetch(url+convivialite)
 .then(response => response.json())
 .then(data => {
     console.log(data)

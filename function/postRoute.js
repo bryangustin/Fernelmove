@@ -2,6 +2,7 @@ const passport = require('passport');
 const User = require("../models/user");
 const bcrypt = require('bcrypt');
 const crypto = require("crypto");
+const nodemailer = require("nodemailer");
 
 const postRoute = function (app) {
 
@@ -179,30 +180,32 @@ const postRoute = function (app) {
         
                                 let expire = Date.now() + 1800000; // 30 minutes
         
-                                // const transporter = nodemailer.createTransport({ // from mail, not working in localhost
-                                //     service: 'Gmail',
-                                //     auth:{
-                                //         user: process.env.MAIL,
-                                //         pass: process.env.PASS
-                                //     }
-                                // });
+                                ////// NODEMAILER //////
+                                const transporter = nodemailer.createTransport({ // from mail, not working in localhost
+                                    service: 'gmail',
+                                    auth:{
+                                        user: process.env.MAIL,
+                                        pass: process.env.PASS
+                                    }
+                                });
         
-                                // let mailOptions = {
-                                //     from:'FreshShop',
-                                //     to: email,
-                                //     subject: 'Password Reset',
-                                //     text: 'Hello '+userName+','+'\n\n'+
-                                //     'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
-                                //     'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
-                                //     'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
-                                //     'Thank you and stay FRESH!'
-                                // }
+                                let mailOptions = {
+                                    from: process.env.MAIL,
+                                    to: email,
+                                    subject: 'Password Reset',
+                                    text: 'Hello '+userName+','+'\n\n'+
+                                    'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
+                                    'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
+                                    'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
+                                    'Thank you and stay FRESH!'
+                                }
         
-                                // transporter.sendMail(mailOptions, (err, info)=>{
-                                //     if (err){
-                                //         // return console.log(err);
-                                //     }
-                                // });
+                                transporter.sendMail(mailOptions, (err, info)=>{
+                                    if (err){
+                                        // return console.log(err);
+                                    }
+                                });
+                                ////////////
         
                                 const id = user._id;
                                 User.findByIdAndUpdate(id, { resetPasswordToken: token, resetPasswordExpires: expire}, err => { // add token to the user
@@ -221,6 +224,7 @@ const postRoute = function (app) {
                     })
                 }else{
                     let user = result;
+                    let email = user.email
         
                     crypto.randomBytes(20, (err, buf) =>{
                         let token = buf.toString('hex');
@@ -228,30 +232,32 @@ const postRoute = function (app) {
 
                         let expire = Date.now() + 1800000; // 30 minutes
 
-                        // const transporter = nodemailer.createTransport({ // from mail, not working in localhost
-                        //     service: 'Gmail',
-                        //     auth:{
-                        //         user: process.env.MAIL,
-                        //         pass: process.env.PASS
-                        //     }
-                        // });
+                        ////// NODEMAILER //////
+                        const transporter = nodemailer.createTransport({ // from mail, not working in localhost
+                            service: 'gmail',
+                            auth:{
+                                user: process.env.MAIL,
+                                pass: process.env.PASS
+                            }
+                        });
 
-                        // let mailOptions = {
-                        //     from:'FreshShop',
-                        //     to: email,
-                        //     subject: 'Password Reset',
-                        //     text: 'Hello '+userName+','+'\n\n'+
-                        //     'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
-                        //     'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
-                        //     'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
-                        //     'Thank you and stay FRESH!'
-                        // }
+                        let mailOptions = {
+                            from: process.env.MAIL,
+                            to: email,
+                            subject: 'Password Reset',
+                            text: 'Hello '+user.name+','+'\n\n'+
+                            'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
+                            'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
+                            'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
+                            'Thank you and stay FRESH!'
+                        }
 
-                        // transporter.sendMail(mailOptions, (err, info)=>{
-                        //     if (err){
-                        //         // return console.log(err);
-                        //     }
-                        // });
+                        transporter.sendMail(mailOptions, (err, info)=>{
+                            if (err){
+                                // return console.log(err);
+                            }
+                        });
+                        ////////////
 
                         const id = user._id;
                         User.findByIdAndUpdate(id, { resetPasswordToken: token, resetPasswordExpires: expire}, err => { // add token to the user
