@@ -1,5 +1,5 @@
 ///////////////////// MAP /////////////////////
-const  url = "http://www.odwb.be/api"; 
+const  url = "https://www.odwb.be/api"; 
 const convivialite = "/records/1.0/search/?dataset=lieux-de-convivialite-fernelmont&q=" // GEO
 const ecoles = "/records/1.0/search/?dataset=ecoles-de-fernelmont&q=" // GEO
 const livres = "/records/1.0/search/?dataset=boites-a-livres&q=" //GEO
