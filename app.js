@@ -74,8 +74,7 @@ mainRouter(app, '/users/my-account', 'my-account',
 // 'logged'
 );
 mainRouter(app, '/commentaire', 'commentaire');
-mainRouter(app, '/suggestion', 'suggestion');
-mainRouter(app, '/suggestion', 'suggestion');
+mainRouter(app, '/suggestion', 'suggestion','popOver');
 mainRouter(app, '/activity', 'activity');
 mainRouter(app, '/quiz', 'quiz');
 mainRouter(app, '/map', 'map');
