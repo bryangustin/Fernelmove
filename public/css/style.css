@@ -115,7 +115,27 @@
     cursor: pointer;
     z-index: 999;
 }
+.close a{
+    text-decoration: none;
+    color:black;
+}
 .carousel-inner img{
     height: 812px;
 }
 
+#displaynone{
+    display: none
+}
+@media only screen and (min-width: 450px) {
+    div{
+        display: none;
+    }
+    nav{
+        display:none;
+    }
+    #displaynone{
+        display: block;
+        width:100%;
+
+    }
+}
