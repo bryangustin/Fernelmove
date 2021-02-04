@@ -9,7 +9,8 @@
     text-align: right;
 }
 .vote_activite{
-    margin: auto !important;
+    position: absolute;
+    margin: 0 30% ;
     margin-top: -100px !important;
     z-index: 999 !important;
     color: white !important;
