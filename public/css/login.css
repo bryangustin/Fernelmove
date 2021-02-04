@@ -1,4 +1,25 @@
 .login-box{
     margin: auto;
     height: 100vh;
+    background: linear-gradient(#5c5c5c9d,#7070709a), url("../images/poppies-4971583_1920.jpg");
+    background-repeat: no-repeat;
+    background-size: 130%;
+}
+.box-container{
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 1px 1px 5px black;
+}
+.box-container h1{
+    text-align: center;
+}
+.login-box .col-6{
+    width: 100% !important;
+}
+.btn-submit-login{
+    width: 100%;
 }
