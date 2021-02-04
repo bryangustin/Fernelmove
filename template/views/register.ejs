@@ -2,7 +2,9 @@
     <form class="col-6 col-sm-4 col-lg-4 m-auto" action="/register" method="POST">
         <h1>INSCRIPTION</h1>
         <div class="mb-3 ">
+
             <%- include ('../partials/messages') %>
+            
             <label for="InputUsername" class="form-label">Ton pseudo</label>
             <input type="text" class="form-control" id="InputUsername" placeholder="Pseudo" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" required>
         </div>
@@ -25,14 +27,14 @@
                 <option selected value="">Sexe</option>
                 <option value="boy">M</option>
                 <option value="girl">F</option>
-                <option value="nope">X</option>
+                <option value="nope">-</option>
             </select>
             <div class="form-group row">
                 <label for="example-date-input" class="col-2 col-form-label">Date</label>
                 <div class="col-10">
-                  <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
                 </div>
-              </div>
+                </div>
             
         </div>
         <div>
