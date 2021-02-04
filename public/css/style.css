@@ -9,16 +9,17 @@
     text-align: right;
 }
 .vote_activite{
-    margin: auto;
-    margin-top: -100px;
-    z-index: 999;
-    color: white;
-    text-align: center;
-    width: 200px;
-    font-size: 20px;
+    margin: auto !important;
+    margin-top: -100px !important;
+    z-index: 999 !important;
+    color: white !important;
+    text-align: center !important;
+    width: 200px !important;
+    font-size: 20px !important;
 }
 .vote_activite a{
     color: white;
+    margin-left: -45px;
 }
 .vote_activite a:hover{
     color: red;
@@ -56,7 +57,8 @@
 .lieu-activity{
     font-size: 0.8rem;
 }
-.btn-participer{
+.btn-participer,
+.btn-vote{
     padding: 5px;
     background: black;
     border: 2px solid white;
@@ -64,12 +66,20 @@
     text-transform: uppercase;
     text-decoration: none;
     font-size: 14px;
+    position: absolute;
 }
-.img-activity{
-    background-image: url("/images/poppies-4971583_1920.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 40%;
-    width: 100%;
-    margin: auto;
+.size-img-fifa{
+    width: 180% !important;
+}
+.size-img-ping{
+    width: 180% !important;
+}
+.size-img-loup{
+    width: 180% !important;
+}
+.btn-vote{
+    padding: 5px 20px;
+}
+.carousel-item img{
+    height: 810px;
 }
