@@ -16,10 +16,10 @@ const postRoute = function (app) {
 
     //Register
     app.post('/register',(req,res)=>{
-        const {name,email, password, password2} = req.body;
+        const {name,email, password, password2, sexe, postalCode} = req.body;
         let errors = [];
-
-        if(!name || !email || !password || !password2) {
+        console.log(sexe);
+        if(!name || !email || !password || !password2 || !sexe || sexe === '' || !postalCode) {
             errors.push({msg : "Il faut remplir tous les champs."})
         }
 
@@ -35,11 +35,14 @@ const postRoute = function (app) {
 
         if(errors.length > 0 ) {
             res.render('register', {
+                user : req.user,
                 errors : errors,
                 name : name,
                 email : email,
                 password : password,
-                password2 : password2
+                password2 : password2,
+                sexe : sexe,
+                postalCode : postalCode
             })
         } else { //validation passed
             User.findOne({email : email}).exec((err,user)=>{
@@ -47,9 +50,14 @@ const postRoute = function (app) {
                 if(user) {
                     errors.push({msg: 'Un compte existe déjà avec cet email.'});
                     res.render('register', {
+                        user : req.user,
                         errors : errors,
                         name : name,
-                        email : email
+                        email : email,
+                        password : password,
+                        password2 : password2,
+                        sexe : sexe,
+                        postalCode : postalCode
                     })
                 } else {
                     User.findOne({name : name}).exec((err,user)=>{
@@ -57,15 +65,22 @@ const postRoute = function (app) {
                         if(user) {
                             errors.push({msg: 'Ce pseudo est déjâ pris.'});
                             res.render('register', {
+                                user : req.user,
                                 errors : errors,
                                 name : name,
-                                email : email
+                                email : email,
+                                password : password,
+                                password2 : password2,
+                                sexe : sexe,
+                                postalCode : postalCode
                             })
                         } else {
                             const newUser = new User({
                                 name : name,
                                 email : email,
-                                password : password
+                                password : password,
+                                sexe : sexe,
+                                postalCode : postalCode
                             });
                 
                             //hash password
@@ -117,6 +132,7 @@ const postRoute = function (app) {
 
             if(errors.length > 0 ) {
                 res.render('my-account', {
+                    user : req.user,
                     errors : errors
                 })
             }
@@ -139,6 +155,7 @@ const postRoute = function (app) {
 
         if(errors.length > 0 ) {
             res.render('password', {
+                user : req.user,
                 errors : errors,
                 usernameEmail : usernameEmail
             })
@@ -149,6 +166,7 @@ const postRoute = function (app) {
                         if(!result) {
                             errors.push({msg: 'Aucun compte ne correspond à cet email ou ce pseudo'});
                             res.render('password', {
+                                user : req.user,
                                 errors : errors,
                                 usernameEmail : usernameEmail
                             })
@@ -192,6 +210,7 @@ const postRoute = function (app) {
         
                                     success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
                                     res.render('password', {
+                                        user : req.user,
                                         success_msg: success_msg,
                                         usernameEmail : usernameEmail,
                                         sent : true
@@ -240,6 +259,7 @@ const postRoute = function (app) {
 
                             success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
                             res.render('password', {
+                                user : req.user,
                                 success_msg: success_msg,
                                 usernameEmail : usernameEmail,
                                 sent : true
