@@ -9,13 +9,14 @@
     text-align: right;
 }
 .vote_activite{
-    margin: auto;
+    margin: 0 25%;
     margin-top: -100px;
     z-index: 999;
     color: white;
     text-align: center;
     width: 200px;
     font-size: 20px;
+    position: absolute;
 }
 .vote_activite a{
     color: white;
@@ -64,4 +65,15 @@
     text-transform: uppercase;
     text-decoration: none;
     font-size: 14px;
+}
+.img-activity{
+    background-image: url("/images/poppies-4971583_1920.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40%;
+    width: 100%;
+    margin: auto;
+}
+.carousel-item img{
+    height: 810px;
 }
