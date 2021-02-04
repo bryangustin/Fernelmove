@@ -15,14 +15,20 @@ const livres = "/records/1.0/search/?dataset=boites-a-livres&q="
 // const art =
 // const internet =
 
-fetch(url+fernelmont)
-.then(response => response.json())
-.then(data => {
-    console.log(data)
-})
+// fetch(url+fernelmont)
+// .then(response => response.json())
+// .then(data => {
+//     console.log(data)
+// })
 
-fetch(url+sport)
+fetch(url+convivialite)
 .then(response => response.json())
 .then(data => {
-    console.log(data)
+    lieu = []
+    data.records.forEach(element =>{
+        lieu.push(element)
+        //lieu.push({text,[element.geometry.coordinates[0],element.geometry.coordinates[1]]})
+
+    })
+    console.log(lieu);
 })
