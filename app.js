@@ -78,6 +78,9 @@ mainRouter(app, '/users/login', 'login');
 mainRouter(app, '/users/register', 'register');
 mainRouter(app, '/users/my-account', 'my-account', 'logged');
 mainRouter(app, '/commentaire', 'commentaire');
+mainRouter(app, '/activity', 'activity');
+mainRouter(app, '/quiz', 'quiz');
+mainRouter(app, '/map', 'map');
 
 
 ///// POST Routes /////
@@ -92,8 +95,6 @@ app.listen(port, () => {
 
 
 
-
-//Test package filtre insulte
 //==============================================================
-
+//Test package filtre insulte
 // console.log(leoProfanity.clean(`<badword>`));

@@ -1,5 +1,6 @@
 const {ensureAuthenticated} = require("../config/403.js");
 const User = require("../models/user");
+const dotenv = require("dotenv");
 
 // Function to set all the default get Routes
 const mainRoute = function (app, route, file, log) {
@@ -28,7 +29,7 @@ const mainRoute = function (app, route, file, log) {
     } else {
         app.get(route, (req, res) => {
             res.render(file, {
-                user : req.user
+                user : req.user,
             })
         })
     }

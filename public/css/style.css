@@ -45,6 +45,23 @@
     z-index: 999;
     left: 40px;
     color: white;
-    margin-block-start: -250px;
-
+    margin-block-start: -290px;
+}
+.date-activity,
+.lieu-activity,
+.img-text-index{
+    margin-bottom: 5px;
+}
+.date-activity,
+.lieu-activity{
+    font-size: 0.8rem;
+}
+.btn-participer{
+    padding: 5px;
+    background: black;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
 }

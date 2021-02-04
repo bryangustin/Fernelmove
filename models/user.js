@@ -16,17 +16,17 @@ const UserSchema  = new mongoose.Schema({
 
     sexe :{
         type  : String,
-        required : true
+        // required : true
     },
 
     birthday :{
         type : Date,
-        required : true
+        // required : true
     },
 
     postalCode :{
         type : Number,
-        required : true
+        // required : true
     },
 
     points :{

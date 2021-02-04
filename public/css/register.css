@@ -1,3 +1,21 @@
+.select-box{
+  display: flex; 
+  justify-content: space-between;
+  width: 100%;
+}
+.select-box select{
+width: 40%;
+}
+.DDN{
+  width: 60% !important;
+}
+
+.code-postale{
+  margin: 6% 0;
+}
+
+
+
 /* .menu-open-button {
     background: #EEEEEE;
     border-radius: 100%;

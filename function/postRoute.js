@@ -19,7 +19,7 @@ const postRoute = function (app) {
         const {name,email, password, password2, sexe, postalCode} = req.body;
         let errors = [];
         console.log(sexe);
-        if(!name || !email || !password || !password2 || !sexe || !postalCode) {
+        if(!name || !email || !password || !password2 || !sexe || sexe === '' || !postalCode) {
             errors.push({msg : "Il faut remplir tous les champs."})
         }
 
