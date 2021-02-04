@@ -80,6 +80,13 @@
 .btn-vote{
     padding: 5px 20px;
 }
-.carousel-item img{
-    height: 810px;
+.size-img-peinture{
+    width: 390% !important;
 }
+.size-img-piscine{
+    width: 386% !important;
+}
+.size-img-cinema{
+    width: 145% !important;
+}
+
