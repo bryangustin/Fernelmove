@@ -80,6 +80,7 @@ mainRouter(app, '/users/my-account', 'my-account', 'logged');
 mainRouter(app, '/commentaire', 'commentaire');
 mainRouter(app, '/activity', 'activity');
 mainRouter(app, '/quiz', 'quiz');
+mainRouter(app, '/map', 'map');
 
 
 ///// POST Routes /////
