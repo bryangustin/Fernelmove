@@ -11,6 +11,7 @@ const app = express();
 const mainRouter = require('./function/mainRoute');
 const postRouter = require('./function/postRoute');
 const commentaireRouter = require('./function/commentaireRoute');
+const suggestionRouter = require('./function/suggestionRoute');
 
 const expressEjsLayout = require('express-ejs-layouts');
 const flash = require('connect-flash');
@@ -71,6 +72,8 @@ mainRouter(app, '/users/login', 'login');
 mainRouter(app, '/users/register', 'register');
 mainRouter(app, '/users/my-account', 'my-account', 'logged');
 mainRouter(app, '/commentaire', 'commentaire');
+mainRouter(app, '/suggestion', 'suggestion');
+mainRouter(app, '/suggestion', 'suggestion');
 mainRouter(app, '/activity', 'activity');
 mainRouter(app, '/quiz', 'quiz');
 mainRouter(app, '/map', 'map');
@@ -79,6 +82,7 @@ mainRouter(app, '/map', 'map');
 ///// POST Routes /////
 postRouter(app);
 commentaireRouter(app);
+suggestionRouter(app);
 
 
 
