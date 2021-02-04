@@ -1,7 +1,7 @@
 <div class="row My-account-box bodyMy-account">
-    <div class="close"><a href="/">&times;</a></div>
     <form class="col-6 col-sm-4 col-lg-4 m-auto" method="POST" action="/My-account">
         <div class="box-container">
+            <div class="close"><a href="/">&times;</a></div>
             <h1>Mon compte</h1>
             <img src="<%= ( user.sexe == 'boy') ? '/images/avatar/garcon.jpg' :(( user.sexe == 'girl') ? '/images/avatar/fille.jpg' : '/images/avatar/none.jpeg' ) %>" class="d-block " alt="avatar">
             <p class="btn icon-btn btn-success avatarScore" href="#" style="margin-left: 25%;"><%= user.points %>  points !</p>
