@@ -9,7 +9,8 @@
     text-align: right;
 }
 .vote_activite{
-    margin: auto !important;
+    position: absolute;
+    margin: 0 30% ;
     margin-top: -100px !important;
     z-index: 999 !important;
     color: white !important;
@@ -41,13 +42,15 @@
     box-shadow: none;
 }
 .box-text-img{
+    border-radius: 15px;
+    background: #6a676778;
+    padding: 10px;
     width: 80vw;
     position: absolute;
     z-index: 999;
     left: 40px;
     color: white;
-    margin-block-start: -290px;
-}
+    margin-block-start: -320px;}
 .date-activity,
 .lieu-activity,
 .img-text-index{
@@ -89,4 +92,50 @@
 .size-img-cinema{
     width: 145% !important;
 }
+.suggest{
+    height: 54% !important;
+}
+.btn-suggest{
+    width: 100%;
+    margin: 3px;
+}
+.title-h3{
+    margin: auto;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.close{
+	opacity: 1;
+	color: black;
+    position: relative;
+    text-align: right;
+	right: 0px;
+	top: 0px;
+	font-size: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+.close a{
+    text-decoration: none;
+    color:black;
+}
+.carousel-inner img{
+    height: 812px;
+}
 
+#displaynone{
+    display: none
+}
+@media only screen and (min-width: 450px) {
+    div{
+        display: none;
+    }
+    nav{
+        display:none;
+    }
+    #displaynone{
+        display: block;
+        width:100%;
+
+    }
+}
