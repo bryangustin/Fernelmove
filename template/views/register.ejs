@@ -1,61 +1,88 @@
+<%- include ('../partials/messages') %>
+
 <div class="row">
     <form class="col-6 col-sm-4 col-lg-4 m-auto" action="/register" method="POST">
         <h1>INSCRIPTION</h1>
         <div class="mb-3 ">
-
-            <%- include ('../partials/messages') %>
-            
             <label for="InputUsername" class="form-label">Ton pseudo</label>
             <input type="text" class="form-control" id="InputUsername" placeholder="Pseudo" name="name" value="<%= typeof name != 'undefined' ? name : '' %>" required>
-        </div>
-        <div class="mb-3 ">
-            <label for="InputEmail" class="form-label">Ton adresse Email</label>
-            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="123@.com" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" required>
-        <div id="emailHelp" class="form-text">Nous ne partagerons jamais ton adresse Email.</div>
-        </div>
-        <div class="mb-3">
-        <label for="InputPassword" class="form-label">Ton mot de passe</label>
-        <input type="password" class="form-control" id="InputPassword" name="password" value="<%= typeof password != 'undefined' ? password : '' %>" required>
-        </div>
-        <div class="mb-3">
-            <label for="InputPasswordConfirmation" class="form-label">Confirme ton mot de passe</label>
-            <input type="password" class="form-control" id="InputPasswordConfirmation"  name="password2" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required>
-            <div id="emailHelp" class="form-text">Ne partage jamais ton mot de passe, Il est privé!</div>
-        </div> 
-        <div class="col-6 col-sm-6 col-lg-6 m-auto select-box">
-            <select class="form-select" aria-label="select gender " name="sexe" value="<%= typeof sexe != 'undefined' ? sexe : '' %>" required>
-                <option selected value="">Sexe</option>
-                <option value="boy">M</option>
-                <option value="girl">F</option>
-                <option value="nope">-</option>
-            </select>
-            <div class="form-group row">
-                <label for="example-date-input" class="col-2 col-form-label">Date</label>
-                <div class="col-10">
-                    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+            </div>
+            <div class="mb-3 ">
+                <label for="InputEmail" class="form-label">Ton adresse Email</label>
+                <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="123@.com" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" required>
+            <div id="emailHelp" class="form-text">Nous ne partagerons jamais ton adresse Email.</div>
+            </div>
+            <div class="mb-3">
+            <label for="InputPassword" class="form-label">Ton mot de passe</label>
+            <input type="password" class="form-control" id="InputPassword" name="password" value="<%= typeof password != 'undefined' ? password : '' %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="InputPasswordConfirmation" class="form-label">Confirme ton mot de passe</label>
+                <input type="password" class="form-control" id="InputPasswordConfirmation"  name="password2" value="<%= typeof password2 != 'undefined' ? password2 : '' %>" required>
+                <div id="emailHelp" class="form-text">Ne partage jamais ton mot de passe, Il est privé!</div>
+            </div> 
+            <div class="col-6 col-sm-6 col-lg-6 m-auto select-box">
+                <select class="form-select" aria-label="select gender " name="sexe" value="<%= typeof sexe != 'undefined' ? sexe : '' %>" required>
+                    <option selected value="">Sexe</option>
+                    <option value="boy">M</option>
+                    <option value="girl">F</option>
+                    <option value="nope">-</option>
+                </select>
+                <div class="form-group row">
+                    <label for="example-date-input" class="col-2 col-form-label">Date</label>
+                    <div class="col-10">
+                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                    </div>
                 </div>
-                </div>
-            
-        </div>
+            </div>
         <div>
-        <input class="form-control code-postale" type="text" placeholder="Code Postale" aria-label="Code Postale" type="number" name="postalCode" value="<%= typeof postalCode != 'undefined' ? postalCode : '' %>" required>
-        <button type="submit" class="btn btn-primary m-auto">ENVOYER</button>
-    </div>
+            <input class="form-control code-postale" type="text" placeholder="Code Postale" aria-label="Code Postale" type="number" name="postalCode" value="<%= typeof postalCode != 'undefined' ? postalCode : '' %>" required>
+            <button type="submit" class="btn btn-primary m-auto">ENVOYER</button>
+        </div>
     </form>
     <div class="row ">
         <div class="col-6 col-sm-4 col-lg-4 m-auto"></form>
-        <h1>Centre d'intérêt</h1>
-        <div class="parent"> 
-            <a href="#" class="menu-item item-1 music"><i class="fas fa-music"></i></a>
-        <a href="#" class="menu-item item-2 jeux"><i class="fas fa-dice"></i></a>
-        <a href="#" class="menu-item item-3 film"><i class="fas fa-film"></i></a>
-        <a href="#" class="menu-item item-4 livre"><i class="fas fa-book-reader"></i></a>
-        <a href="#" class="menu-item item-5 scout"> <i class="fas fa-campground"></i></a>
-        <a href="#" class="menu-item item-6 art"><i class="fas fa-paint-brush"></i></a>
-        <a href="#" class="menu-item item-6 sport"><i class="fas fa-paint-brush"></i></a>
+            <h1>Centre d'intérêt</h1>
+            
+            <a class="btn icon-btn btn-default" href="#">
+                <span class="glyphicon btn-glyphicon glyphicon-save img-circle text-muted"></span> <!-- defining icon -->
+                Download <!-- defining text -->
+                </a>
+                
+                
+                
+                <a class="btn icon-btn btn-primary" href="#"><i class="fas fa-music"></i>
+                <!-- <span class="glyphicon btn-glyphicon glyphicon-thumbs-up img-circle text-primary"></span> -->
+                Like
+                </a>
+                
+                <a class="btn icon-btn btn-success" href="#"><i class="fas fa-dice"></i>
+                <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
+                Add
+                </a>
+                
+                <a class="btn icon-btn btn-info" href="#"><i class="fas fa-film"></i>
+                <!-- <span class="glyphicon btn-glyphicon glyphicon-share img-circle text-info"></span> -->
+                Share
+                </a>
+                
+                <a class="btn icon-btn btn-warning" href="#"><i class="fas fa-book-reader"></i>
+                <!-- <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span> -->
+                Remove
+                </a>
+                
+                <a class="btn icon-btn btn-danger" href="#"><i class="fas fa-campground"></i>
+                <!-- <span class="glyphicon btn-glyphicon glyphicon-trash img-circle text-danger"></span> -->
+                Delete
+                </a>
+                <a class="btn icon-btn btn-muted" href="#">
+                    <i class="fas fa-paint-brush">
+                <!-- <span class="glyphicon btn-glyphicon glyphicon-remove-circle img-circle text-muted"></span> -->
+                Unavailable
+                </a>
         </div>
     </div>
-            <div class="music"><i class="fas fa-music"></i></div> 
+            <!-- <div class="music"><i class="fas fa-music"></i></div> 
             <div class="jeux"><i class="fas fa-dice"></i></div> 
             <div class="film"><i class="fas fa-film"></i></div> 
             <div class="livre"><i class="fas fa-book-reader"></i></div> 
@@ -64,7 +91,7 @@
             <div class="sport"><i class="fas fa-paint-brush"></i></div> 
             <div class="div8">div 8</div> 
             <div class="div9">div 9</div> 
-            </div>
+            </div> -->
         
         
         
