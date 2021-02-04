@@ -73,9 +73,9 @@
 
 <div class="vote_activite">
     <div class="thumbs-box">
-        <div class="up-thumbs thumbs"><a href=""><i class="far fa-thumbs-up text-danger"></i></a></div>
-        <div class="down-thumbs thumbs"><a href=""><i class="far fa-thumbs-down text-danger"></i></a></div>
+        <div class="up-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/vote' : '/users/login' %>><i class="far fa-thumbs-up text-danger"></i></a></div>
+        <div class="down-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/vote' : '/users/login' %>><i class="far fa-thumbs-down text-danger"></i></a></div>
     </div>
 </div>
 
-<img id="displaynone" src="images/tag-fernelmont.jpg" alt="tag">
+
