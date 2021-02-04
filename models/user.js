@@ -36,7 +36,11 @@ const UserSchema  = new mongoose.Schema({
 
     email :{
         type  : String
-        },
+    },
+
+    statut :{
+        type  : String
+    },
 
     password :{
         type  : String,

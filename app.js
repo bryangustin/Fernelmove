@@ -68,9 +68,11 @@ app.use((req,res,next)=> {
 mainRouter(app, '/', 'index');
 mainRouter(app, '/password', 'password');
 mainRouter(app, '/resetPassword/:token', 'resetPassword', 'reset');
-mainRouter(app, '/users/login', 'login');
+mainRouter(app, '/users/login', 'login', 'popOver');
 mainRouter(app, '/users/register', 'register');
-mainRouter(app, '/users/my-account', 'my-account', 'logged');
+mainRouter(app, '/users/my-account', 'my-account', 
+// 'logged'
+);
 mainRouter(app, '/commentaire', 'commentaire');
 mainRouter(app, '/suggestion', 'suggestion');
 mainRouter(app, '/suggestion', 'suggestion');
