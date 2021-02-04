@@ -26,17 +26,18 @@ module.exports = function(passport) {
                         })
                     })
                     .catch((err)=> {console.log(err)})
-                }
-                //match pass
-                bcrypt.compare(password,user.password,(err,isMatch)=>{
-                    if(err) throw err;
+                } else {
+                    //match pass
+                    bcrypt.compare(password,user.password,(err,isMatch)=>{
+                        if(err) throw err;
 
-                    if(isMatch) {
-                        return done(null,user);
-                    } else {
-                        return done(null,false,{message : 'Mot de passe incorrect'});
-                    }
-                })
+                        if(isMatch) {
+                            return done(null,user);
+                        } else {
+                            return done(null,false,{message : 'Mot de passe incorrect'});
+                        }
+                    })
+                }
             })
             .catch((err)=> {console.log(err)})
         })

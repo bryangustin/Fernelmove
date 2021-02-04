@@ -1,23 +1,33 @@
-#quiz img{
-    width:40%
-}
+
 #quiz p{
-    position: relative;
+    top: 25%;
+    left: 26%;
+    position: absolute;
     width: 30%;
-    margin: -24% 0 0 24%;
 }
 
 #prof{
     margin: 100px 0 0 43%;
+    width:40%;
 }
 
 #bulle{
+    position: absolute;
+    top: 400px;
+    left: 20%;
+    height: 200px;
+    width: 32%;
     transform: rotate(180deg);
-    margin: -21% 0 0 16%;
+    background-image: url(../images/bulle.png);
+    background-size: 100% 100%;
 }
 
 
 
-/* @media only screen and (max-width: 551px) {
- 
-} */
+@media only screen and (max-width: 551px) {
+    #bulle {
+        top: 160px;
+        height: 120px
+    }
+}
+

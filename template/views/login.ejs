@@ -1,20 +1,21 @@
 <div class="row login-box">
     <form class="col-6 col-sm-4 col-lg-4 m-auto" method="POST" action="/login">
         <h1>LOGIN</h1>
-     
+        <%- include ('../partials/messages') %>
         <div class="mb-3 ">
             <label for="InputUsername" class="form-label">Ton pseudo</label>
-            <input type="text" class="form-control" name="usernameEmail" id="InputUsername" placeholder="Pseudo">
+            <input type="text" class="form-control" id="InputUsername" placeholder="Pseudo" name="usernameEmail" value="<%= typeof email != 'undefined' ? email : '' %>" required>
         </div>
         
         <div class="mb-3">
-        <label for="InputPassword" class="form-label">Ton mot de passe</label>
-        <input type="password" class="form-control" name="password" id="InputPassword" placeholder="Mot de passe">
+            <label for="InputPassword" class="form-label">Ton mot de passe</label>
+            <input type="password" class="form-control" id="InputPassword" placeholder="Mot de passe"  name="password" required>
+
         </div>
 
         <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="Check1">
-        <label class="form-check-label" for="Check1">souvient toi de moi</label>
+            <input type="checkbox" class="form-check-input" id="Check1">
+            <label class="form-check-label" for="Check1">souvient toi de moi</label>
         </div>
         <button type="submit" class="btn btn-primary m-auto">OK</button>
     </form>   
