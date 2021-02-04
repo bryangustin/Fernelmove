@@ -16,7 +16,7 @@ const UserSchema  = new mongoose.Schema({
 
     sexe :{
         type  : String,
-        // required : true
+        required : true
     },
 
     birthday :{
@@ -26,7 +26,7 @@ const UserSchema  = new mongoose.Schema({
 
     postalCode :{
         type : Number,
-        // required : true
+        required : true
     },
 
     points :{

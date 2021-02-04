@@ -1,10 +1,10 @@
-<!-- commentaire form -->
+<!-- suggestion form -->
 
 <div class="d-flex justify-content-center my-5">
-    <form class="col-6 col-sm-4 col-lg-4 m-auto" method="POST" action="/commentaire">
+    <form class="col-6 col-sm-4 col-lg-4 m-auto" method="POST" action="/suggestion">
             <h1>SUGGESTION</h1>
-        <form action="/commentaire" method="post">
-            <select name="commentaireTitle" id="">
+        <form action="/suggestion" method="post">
+            <select name="suggestionTitle" id="">
                 <option value="">Musique</option>
                 <option value="">Jeux vidéo</option>
                 <option value="">Jeux de société</option>
@@ -15,8 +15,8 @@
                 <option value="">Technologie</option>
                 <option value="">Devoir</option>
             </select>
-            <input type="text" name="" id="" placeholder="Titre de ton activité">
-            <textarea name="commentaire" id="" cols="30" rows="10" placeholder="Propose une activité..."></textarea>
+            <input type="text" name="title" id="" placeholder="Titre de ton activité">
+            <textarea name="suggestion" id="" cols="30" rows="10" placeholder="Propose une activité..."></textarea>
             <button type="submit" class="btn btn-primary m-auto">ENVOYER</button>
         </form>
     </div>

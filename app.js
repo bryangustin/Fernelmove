@@ -11,6 +11,7 @@ const app = express();
 const mainRouter = require('./function/mainRoute');
 const postRouter = require('./function/postRoute');
 const commentaireRouter = require('./function/commentaireRoute');
+const suggestionRouter = require('./function/suggestionRoute');
 
 const expressEjsLayout = require('express-ejs-layouts');
 const flash = require('connect-flash');
@@ -18,13 +19,6 @@ const dotenv = require("dotenv");
 const bodyParser = require('body-parser');
 dotenv.config();
 
-//Test package filtre insulte:
-var leoProfanity = require('leo-profanity');
-var frenchBadwordsList = require('french-badwords-list');
- 
-leoProfanity.clearList();
-leoProfanity.add(frenchBadwordsList.array);
-//==============================================================
 
 
 ///// BodyParser /////
@@ -78,13 +72,17 @@ mainRouter(app, '/users/login', 'login');
 mainRouter(app, '/users/register', 'register');
 mainRouter(app, '/users/my-account', 'my-account', 'logged');
 mainRouter(app, '/commentaire', 'commentaire');
+mainRouter(app, '/suggestion', 'suggestion');
+mainRouter(app, '/suggestion', 'suggestion');
 mainRouter(app, '/activity', 'activity');
 mainRouter(app, '/quiz', 'quiz');
+mainRouter(app, '/map', 'map');
 
 
 ///// POST Routes /////
 postRouter(app);
 commentaireRouter(app);
+suggestionRouter(app);
 
 
 
@@ -94,6 +92,3 @@ app.listen(port, () => {
 
 
 
-//==============================================================
-//Test package filtre insulte
-// console.log(leoProfanity.clean(`<badword>`));

@@ -2,6 +2,7 @@ const passport = require('passport');
 const User = require("../models/user");
 const bcrypt = require('bcrypt');
 const crypto = require("crypto");
+const nodemailer = require("nodemailer");
 
 const postRoute = function (app) {
 
@@ -16,10 +17,10 @@ const postRoute = function (app) {
 
     //Register
     app.post('/register',(req,res)=>{
-        const {name,email, password, password2} = req.body;
+        const {name,email, password, password2, sexe, postalCode} = req.body;
         let errors = [];
-
-        if(!name || !email || !password || !password2) {
+        console.log(sexe);
+        if(!name || !email || !password || !password2 || !sexe || sexe === '' || !postalCode) {
             errors.push({msg : "Il faut remplir tous les champs."})
         }
 
@@ -35,11 +36,14 @@ const postRoute = function (app) {
 
         if(errors.length > 0 ) {
             res.render('register', {
+                user : req.user,
                 errors : errors,
                 name : name,
                 email : email,
                 password : password,
-                password2 : password2
+                password2 : password2,
+                sexe : sexe,
+                postalCode : postalCode
             })
         } else { //validation passed
             User.findOne({email : email}).exec((err,user)=>{
@@ -47,9 +51,14 @@ const postRoute = function (app) {
                 if(user) {
                     errors.push({msg: 'Un compte existe déjà avec cet email.'});
                     res.render('register', {
+                        user : req.user,
                         errors : errors,
                         name : name,
-                        email : email
+                        email : email,
+                        password : password,
+                        password2 : password2,
+                        sexe : sexe,
+                        postalCode : postalCode
                     })
                 } else {
                     User.findOne({name : name}).exec((err,user)=>{
@@ -57,15 +66,22 @@ const postRoute = function (app) {
                         if(user) {
                             errors.push({msg: 'Ce pseudo est déjâ pris.'});
                             res.render('register', {
+                                user : req.user,
                                 errors : errors,
                                 name : name,
-                                email : email
+                                email : email,
+                                password : password,
+                                password2 : password2,
+                                sexe : sexe,
+                                postalCode : postalCode
                             })
                         } else {
                             const newUser = new User({
                                 name : name,
                                 email : email,
-                                password : password
+                                password : password,
+                                sexe : sexe,
+                                postalCode : postalCode
                             });
                 
                             //hash password
@@ -117,6 +133,7 @@ const postRoute = function (app) {
 
             if(errors.length > 0 ) {
                 res.render('my-account', {
+                    user : req.user,
                     errors : errors
                 })
             }
@@ -139,6 +156,7 @@ const postRoute = function (app) {
 
         if(errors.length > 0 ) {
             res.render('password', {
+                user : req.user,
                 errors : errors,
                 usernameEmail : usernameEmail
             })
@@ -149,6 +167,7 @@ const postRoute = function (app) {
                         if(!result) {
                             errors.push({msg: 'Aucun compte ne correspond à cet email ou ce pseudo'});
                             res.render('password', {
+                                user : req.user,
                                 errors : errors,
                                 usernameEmail : usernameEmail
                             })
@@ -161,30 +180,32 @@ const postRoute = function (app) {
         
                                 let expire = Date.now() + 1800000; // 30 minutes
         
-                                // const transporter = nodemailer.createTransport({ // from mail, not working in localhost
-                                //     service: 'Gmail',
-                                //     auth:{
-                                //         user: process.env.MAIL,
-                                //         pass: process.env.PASS
-                                //     }
-                                // });
+                                ////// NODEMAILER //////
+                                const transporter = nodemailer.createTransport({ // from mail, not working in localhost
+                                    service: 'gmail',
+                                    auth:{
+                                        user: process.env.MAIL,
+                                        pass: process.env.PASS
+                                    }
+                                });
         
-                                // let mailOptions = {
-                                //     from:'FreshShop',
-                                //     to: email,
-                                //     subject: 'Password Reset',
-                                //     text: 'Hello '+userName+','+'\n\n'+
-                                //     'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
-                                //     'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
-                                //     'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
-                                //     'Thank you and stay FRESH!'
-                                // }
+                                let mailOptions = {
+                                    from: process.env.MAIL,
+                                    to: email,
+                                    subject: 'Password Reset',
+                                    text: 'Hello '+userName+','+'\n\n'+
+                                    'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
+                                    'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
+                                    'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
+                                    'Thank you and stay FRESH!'
+                                }
         
-                                // transporter.sendMail(mailOptions, (err, info)=>{
-                                //     if (err){
-                                //         // return console.log(err);
-                                //     }
-                                // });
+                                transporter.sendMail(mailOptions, (err, info)=>{
+                                    if (err){
+                                        // return console.log(err);
+                                    }
+                                });
+                                ////////////
         
                                 const id = user._id;
                                 User.findByIdAndUpdate(id, { resetPasswordToken: token, resetPasswordExpires: expire}, err => { // add token to the user
@@ -192,6 +213,7 @@ const postRoute = function (app) {
         
                                     success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
                                     res.render('password', {
+                                        user : req.user,
                                         success_msg: success_msg,
                                         usernameEmail : usernameEmail,
                                         sent : true
@@ -202,6 +224,7 @@ const postRoute = function (app) {
                     })
                 }else{
                     let user = result;
+                    let email = user.email
         
                     crypto.randomBytes(20, (err, buf) =>{
                         let token = buf.toString('hex');
@@ -209,30 +232,32 @@ const postRoute = function (app) {
 
                         let expire = Date.now() + 1800000; // 30 minutes
 
-                        // const transporter = nodemailer.createTransport({ // from mail, not working in localhost
-                        //     service: 'Gmail',
-                        //     auth:{
-                        //         user: process.env.MAIL,
-                        //         pass: process.env.PASS
-                        //     }
-                        // });
+                        ////// NODEMAILER //////
+                        const transporter = nodemailer.createTransport({ // from mail, not working in localhost
+                            service: 'gmail',
+                            auth:{
+                                user: process.env.MAIL,
+                                pass: process.env.PASS
+                            }
+                        });
 
-                        // let mailOptions = {
-                        //     from:'FreshShop',
-                        //     to: email,
-                        //     subject: 'Password Reset',
-                        //     text: 'Hello '+userName+','+'\n\n'+
-                        //     'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
-                        //     'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
-                        //     'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
-                        //     'Thank you and stay FRESH!'
-                        // }
+                        let mailOptions = {
+                            from: process.env.MAIL,
+                            to: email,
+                            subject: 'Password Reset',
+                            text: 'Hello '+user.name+','+'\n\n'+
+                            'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
+                            'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
+                            'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
+                            'Thank you and stay FRESH!'
+                        }
 
-                        // transporter.sendMail(mailOptions, (err, info)=>{
-                        //     if (err){
-                        //         // return console.log(err);
-                        //     }
-                        // });
+                        transporter.sendMail(mailOptions, (err, info)=>{
+                            if (err){
+                                // return console.log(err);
+                            }
+                        });
+                        ////////////
 
                         const id = user._id;
                         User.findByIdAndUpdate(id, { resetPasswordToken: token, resetPasswordExpires: expire}, err => { // add token to the user
@@ -240,6 +265,7 @@ const postRoute = function (app) {
 
                             success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
                             res.render('password', {
+                                user : req.user,
                                 success_msg: success_msg,
                                 usernameEmail : usernameEmail,
                                 sent : true
