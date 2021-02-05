@@ -70,13 +70,11 @@ mainRouter(app, '/password', 'password');
 mainRouter(app, '/resetPassword/:token', 'resetPassword', 'reset');
 mainRouter(app, '/users/login', 'login', 'popOver');
 mainRouter(app, '/users/register', 'register');
-mainRouter(app, '/users/my-account', 'my-account', 
-// 'logged'
-);
+mainRouter(app, '/users/my-account', 'my-account','logged','popOver');
 mainRouter(app, '/commentaire', 'commentaire');
 mainRouter(app, '/suggestion', 'suggestion','popOver');
 mainRouter(app, '/activity', 'activity');
-mainRouter(app, '/quiz', 'quiz');
+mainRouter(app, '/quiz', 'quiz','logged');
 mainRouter(app, '/map', 'map');
 
 

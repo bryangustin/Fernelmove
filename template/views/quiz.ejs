@@ -19,12 +19,10 @@
     </div>
   </div> -->
 <div class="avatar" style="z-index:99; position: absolute; left: 30%; top: 10%;">
-    <img src="/images/garcon.jpg" style="position: relative; border-radius:50%; margin: auto; width: 150px; height: 150px;" class="d-block" alt="...">
-    <!-- <p id="avatarScore" style="position: absolute; top: 50%; left: 50%;">1</p> </i>-->
-    <a class="btn icon-btn btn-success avatarScore" href="#" style="position: absolute; margin: 0;">0 points !</a>
-        <!-- <span class="glyphicon btn-glyphicon glyphicon-plus img-circle text-success"></span> -->
 
-        </a>
+    <img src="<%= ( user.sexe == 'boy') ? '/images/avatar/garcon.jpg' :(( user.sexe == 'girl') ? '/images/avatar/fille.jpg' : '/images/avatar/none.jpg' ) %>" style="position: relative; border-radius:50%; margin: auto; width: 150px; height: 150px;" class="d-block" alt="...">
+    <p class="btn icon-btn btn-success avatarScore" href="#" style="position: absolute; margin: 0;"><%= user.points %>  points !</p>
+    
 </div>
   <div id="carouselExampleCaptions" class="carousel slide mt-index-caroussel" style="z-index: 1;" data-bs-ride="carousel">
     <ol class="carousel-indicators">
@@ -65,25 +63,5 @@
         </div>
     </div>
     </div>
-    
+    <i class="far fa-question-circle" style="position: absolute; top: 56px; left: 209px;"></i>
 </div>
-<script language="javascript">
-    var x = 0;
-
-    function hola(x) {
-        if(x == 0) {
-            document.getElementById("cont1").style.visibility="hidden";
-            document.getElementById("cont2").style.visibility="hidden";
-        }
-
-        if(x == 1) {
-            document.getElementById("cont1").style.visibility="visible";
-            document.getElementById("cont2").style.visibility="hidden"; 
-        }
-
-        if(x == 2)  {
-            document.getElementById("cont1").style.visibility="hidden";
-            document.getElementById("cont2").style.visibility="visible"; 
-        }
-    }
-</script>

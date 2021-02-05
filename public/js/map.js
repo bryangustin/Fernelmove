@@ -1,5 +1,5 @@
 ///////////////////// MAP /////////////////////
-const  url = "http://www.odwb.be/api"; 
+const  url = "https://www.odwb.be/api"; 
 const convivialite = "/records/1.0/search/?dataset=lieux-de-convivialite-fernelmont&q=" // GEO
 const ecoles = "/records/1.0/search/?dataset=ecoles-de-fernelmont&q=" // GEO
 const livres = "/records/1.0/search/?dataset=boites-a-livres&q=" //GEO
@@ -33,11 +33,17 @@ function getLocation() {
               coordinates: me
             },
             properties: {
-              title: 'You are here.',
-              description: 'none'
+              title: 'You are here.'
             }
           }
         };
+
+        let map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v11',
+          center: me,
+          zoom: 12
+        });
 
         fetch(url+convivialite)
         .then(response => response.json())
@@ -92,13 +98,6 @@ function getLocation() {
               });
     
               geojson.livres = livres;
-
-              let map = new mapboxgl.Map({
-                  container: 'map',
-                  style: 'mapbox://styles/mapbox/streets-v11',
-                  center: me,
-                  zoom: 11
-              });
           
               // add convivialites markers to map
               geojson.convivialites.forEach(function(marker) {
@@ -158,6 +157,7 @@ function getLocation() {
               .setHTML('<h3>' + geojson.me.properties.title + '</h3>'))
               .addTo(map);   
               
+
             })
           })
         })        
@@ -171,56 +171,55 @@ function getLocation() {
 getLocation();
 
 
+///////////////////// FILTER /////////////////////
 
+let publicPoints = document.getElementsByClassName('markerPurple');
+let ecolesPoints = document.getElementsByClassName('markerGreen');
+let livresPoints = document.getElementsByClassName('markerBlue');
+let publicShow = true;
+let ecolesShow = true;
+let livresShow = true;
 
+console.log(livresPoints);
 
+document.getElementById('livres').addEventListener('click', () => {
+  if (livresShow) {
+    for (let x = 0; x < livresPoints.length; x++) {
+      livresPoints[x].setAttribute("style", "visibility: hidden;");
+      livresShow = false;
+    }
+  } else {
+    for (let x = 0; x < livresPoints.length; x++) {
+      livresPoints[x].setAttribute("style", "visibility: visible;");
+      livresShow = true;
+    }
+  }
+});
 
+document.getElementById('ecoles').addEventListener('click', () => {
+  if (ecolesShow) {
+    for (let x = 0; x < ecolesPoints.length; x++) {
+      ecolesPoints[x].setAttribute("style", "visibility: hidden;");
+      ecolesShow = false;
+    }
+  } else {
+    for (let x = 0; x < ecolesPoints.length; x++) {
+      ecolesPoints[x].setAttribute("style", "visibility: visible;");
+      ecolesShow = true;
+    }
+  }
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // mapboxgl.accessToken = 'pk.eyJ1Ijoib2Rhc3lsdmFpbiIsImEiOiJja2txbG1kaWwwNTNmMm9wY3hzbWpoZm94In0.KqoXKfntalmfcnKaaOgxGw';
-
-            // let map = new mapboxgl.Map({
-            //     container: 'map',
-            //     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-            //     center: me, // starting position [lng, lat] 
-            //     zoom: 11 // starting zoom
-            // });
-
-            // let points = [{pos:me, text: "You are here."}];
-
-            // data.records.forEach(elem => {
-            //     let point = {};
-            //     point.pos = [];
-            //     point.pos.push(elem.fields.point_geocodage[1]);
-            //     point.pos.push(elem.fields.point_geocodage[0]);
-            //     point.text = elem.fields.remarques;
-
-            //     points.push(point);
-            // });
-
-            // points.forEach((point) => {
-            //     let popup = new mapboxgl.Popup({ offset: 25 }).setText(
-            //     point.text
-            //     );
-            //     let marker = new mapboxgl.Marker()
-            //     .setLngLat(point.pos)
-            //     .setPopup(popup)
-            //     .addTo(map);
-            // })
+document.getElementById('public').addEventListener('click', () => {
+  if (publicShow) {
+    for (let x = 0; x < publicPoints.length; x++) {
+      publicPoints[x].setAttribute("style", "visibility: hidden;");
+      publicShow = false;
+    }
+  } else {
+    for (let x = 0; x < publicPoints.length; x++) {
+      publicPoints[x].setAttribute("style", "visibility: visible;");
+      publicShow = true;
+    }
+  }
+});
