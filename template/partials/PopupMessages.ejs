@@ -1,0 +1,11 @@
+<% if(success_msg != '') { %>
+    <div id="PopupMessages" class="alert alert-success alert-dismissible fade show myMessageBox" role="alert">
+        <p><%=success_msg %></p>
+    </div>
+<% } %>
+
+<% if(error_msg != '') { %> 
+    <div id="PopupMessages" class="alert alert-danger alert-dismissible fade show myMessageBox" role="alert">
+        <p><%= error_msg %></p>
+    </div>
+<% } %>

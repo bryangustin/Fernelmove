@@ -1,0 +1,16 @@
+.myMessageBox{
+    border: solid 2px;
+    border-radius: 20px;
+    width: 50%;
+    position: absolute;
+    z-index: 100;
+    left: 25%;
+    top: 20%;
+    opacity: 0.7;
+    padding: 5px !important;
+    text-align: center;
+}
+
+.myMessageBox p {
+    margin-bottom: 0px;
+}
