@@ -42,7 +42,8 @@ Remember me
 
 **Screenshot**
 -----------
-![register]('public/images/register.jpg')
+Inline-style: 
+![register]('/public/images/screenshot/register.jpg')
 ![login]('public/images/login.jpg')
 ![home page]('public/images/suggestion-cinema.jpg')
 ![activity]('public/images/activity-fifa.jpg')
