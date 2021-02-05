@@ -30,6 +30,7 @@
 }
 
 .carousel-item .box-text-img button{
+    color: white;
     text-transform: none;
     border-radius: 15px;
     padding: 10px;
