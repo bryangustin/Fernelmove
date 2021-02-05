@@ -44,6 +44,5 @@ Remember me
 -----------
 ![home page](https://github.com/bryangustin/Fernelmove/blob/main/public/images/screenshot/suggestion-cinema.jpg)
 ![activity](https://github.com/bryangustin/Fernelmove/blob/main/public/images/screenshot/activity-fifa.jpg)
-![quiz](https://github.com/bryangustin/Fernelmove/blob/main/public/images/screenshot/quiz.jpg)
 ![map](https://github.com/bryangustin/Fernelmove/blob/main/public/images/screenshot/map.jpg)
 ![account](https://github.com/bryangustin/Fernelmove/blob/main/public/images/screenshot/account.jpg)
