@@ -1,4 +1,5 @@
-.login-box{
+
+.My-account-box{
     margin: auto;
     height: 100vh;
     background: linear-gradient(#5c5c5c9d,#7070709a), url("../images/poppies-4971583_1920.jpg");
@@ -14,6 +15,12 @@
     background: white;
     box-shadow: 1px 1px 5px black;
 }
+.box-container img{
+    width: 100px;
+    border-radius: 50%;
+    height: 100px;
+    margin: auto;
+}
 .box-container a{
     text-decoration: none;
     color: black
@@ -21,11 +28,10 @@
 .box-container h1{
     text-align: center;
 }
-.login-box .col-6{
+.My-account-box .col-6{
     width: 100% !important;
 }
-.btn-submit-login{
+.btn-submit-My-account{
     width: 100%;
 }
-
 

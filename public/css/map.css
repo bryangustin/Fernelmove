@@ -6,10 +6,11 @@ body { margin: 0; padding: 0; }
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
+    opacity: 0.85;
 }
 
 .markerGreen {
@@ -17,10 +18,11 @@ body { margin: 0; padding: 0; }
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
+    opacity: 0.85;
 }
 
 .markerPurple {
@@ -28,10 +30,11 @@ body { margin: 0; padding: 0; }
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
+    opacity: 0.85;
 }
 
 .markerBlue {
@@ -39,10 +42,11 @@ body { margin: 0; padding: 0; }
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
+    opacity: 0.85;
 }
 
 .mapboxgl-popup {
@@ -52,5 +56,43 @@ body { margin: 0; padding: 0; }
 .mapboxgl-popup-content {
     text-align: center;
     font-family: 'Open Sans', sans-serif;
+    border-radius: 25px;
+    background-color: rgba(245, 245, 245, 0.8);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mapboxgl-popup-content p {
+    margin-bottom: 0px;
+}
+
+.mapboxgl-popup-close-button {
+    display:none;
+}
+
+#filter{
+    position: absolute;
+    z-index: 100;
+    width: 80%;
+    max-height: 40px;
+    left: 10%; 
+    border-radius: 25px;
+    top: 87%;
+    background-color: rgba(245, 245, 245, 0.7);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#filter div{
+    margin-top: 2%;
+}
+
+.ecoles{
+    color: rgba(0,149,76,255);
+}
+
+.livres{
+    color: rgba(0,170,233,255);
+}
+
+.public{
+    color: rgba(112,38,139,255);
 }

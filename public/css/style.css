@@ -9,7 +9,8 @@
     text-align: right;
 }
 .vote_activite{
-    margin: auto !important;
+    position: absolute;
+    margin: 0 30% ;
     margin-top: -100px !important;
     z-index: 999 !important;
     color: white !important;
@@ -114,6 +115,48 @@
     cursor: pointer;
     z-index: 999;
 }
+.close a{
+    text-decoration: none;
+    color:black;
+}
 .carousel-inner img{
     height: 812px;
+}
+
+#displaynone{
+    display: none
+}
+
+@media only screen and (max-height: 775px) {
+    .suggest {
+        height: 71% !important;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    div{
+        display: none !important;
+    }
+    nav{
+        display:none !important;
+    }
+    #displaynone{
+        text-align: center;
+        color: rgb(46, 15, 15);
+        background: url("../images/tag-fernelmont.jpg");
+        background-size: cover;
+        display: block !important;
+        width:100%;
+        height: 800px;
+        margin-top: -10%;
+        padding-top: 15%;
+    }
+    #displaynone div{
+        display: block !important;
+        background-color: #ffffff45;
+        width: fit-content;
+        padding: 10px;
+        border-radius: 15px;
+        margin: 10% auto;
+    }
 }

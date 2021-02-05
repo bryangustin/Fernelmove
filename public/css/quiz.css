@@ -21,6 +21,13 @@
     background-image: url(../images/bulle.png);
     background-size: 100% 100%;
 }
+.avatarScore{
+    top: 75% !important;
+    left: 13% !important;
+    width: 111px;
+    height: 35px;
+    text-align: end;
+}
 
 
 

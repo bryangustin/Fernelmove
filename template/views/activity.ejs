@@ -1,5 +1,8 @@
 <!-- <div id="carouselExampleControls" class="carousel slide mt-index-caroussel" data-bs-ride="carousel">
     <ol class="carousel-indicators">
+        <li data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#carouselExampleControls" data-bs-slide-to="1"></li>
+        <li data-bs-target="#carouselExampleControls" data-bs-slide-to="2"></li>
 
         <li data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"></li>
         <li data-bs-target="#carouselExampleControls" data-bs-slide-to="1"></li>
@@ -55,12 +58,18 @@
         <li data-bs-target="#carouselExampleControls" data-bs-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
+        <h1 style="z-index: 999; position: absolute; top: 136px; left: 116px; color: white;
+        -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: red;
+        font-size: 54px;">Tu <br>
+        Viens ?</h1>
         <div class="carousel-item active">
             <img src="/images/ping.jpg" class="d-block w-100 " alt="...">
             <div class="box-text-img">
                 <h2 class="img-titre-index">Tournoi de Ping pong</h2>
                 <p class="date-activity">21 05 2021</p>
-                <p class="img-text-index">tournoi de ping pong organisé par la maison des jeunes de fernelmont, materiel
+                <p class="img-text-index">Tournois de ping pong organisé par la maison des jeunes de fernelmont, materiel
                     à disposition venez avec le smile.</p>
                 <p class="lieu-activity">Rue Goffin 2, 5380 Fernelmont</p>
             </div>
@@ -88,6 +97,7 @@
     </div>
 </div>
 
-<div class="vote_activite">
-    <a class="btn-participer" href="">Participer</a>
+
+<div class="vote_activite m-auto position-static">
+    <a class="btn-participer" href=<%= (typeof user != 'undefined') ? '/activity' : '/users/login' %>>Participer</a>
 </div>
