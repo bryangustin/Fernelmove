@@ -3,7 +3,7 @@ const User = require("../models/user");
 const dotenv = require("dotenv");
 
 // Function to set all the default get Routes
-const mainRoute = function (app, route, file, log) {
+const mainRoute = function (app, route, file, log, reset) {
     
     if (log === 'logged') {
         app.get(route, ensureAuthenticated, (req, res) => {
@@ -11,7 +11,7 @@ const mainRoute = function (app, route, file, log) {
                 user : req.user
             })
         })
-    } else if (log === 'reset'){
+    } else if (log === 'popOver' && reset === 'reset'){
         app.get(route, (req, res) => {
             User.findOne({ 
                 resetPasswordToken: req.params.token, // looking for the reset token 
@@ -23,6 +23,7 @@ const mainRoute = function (app, route, file, log) {
                 }
                 res.render('resetPassword', {
                     token: req.params.token,
+                    popOver : true
                 })
             });
         })

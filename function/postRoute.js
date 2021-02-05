@@ -208,13 +208,13 @@ const postRoute = function (app) {
         
                                 let mailOptions = {
                                     from: process.env.MAIL,
-                                    to: email,
-                                    subject: 'Password Reset',
-                                    text: 'Hello '+userName+','+'\n\n'+
-                                    'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
+                                    to: user.email,
+                                    subject: 'Réinitialisation de ton mot de passe',
+                                    text: 'Salut '+user.name+','+'\n\n'+
+                                    'Tu reçois ce message car une demande de réinitialisation de ton mot de passe a été envoyé. Clique sur le lien ci-dessous pour changer ton mot de passe:'+'\n'+
                                     'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
-                                    'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
-                                    'Thank you and stay FRESH!'
+                                    "Si tu n'es pas à l'origine de cette demande, ignore cet email. Ce lien ne sera actif que pour les 30 prochaines minutes."+'\n\n'+
+                                    'À bientôt sur Fernelmove!'
                                 }
         
                                 transporter.sendMail(mailOptions, (err, info)=>{
@@ -229,7 +229,7 @@ const postRoute = function (app) {
                                     if (err) return res.send(500, err);
         
                                     success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
-                                    res.render('password', {
+                                    res.render('login', {
                                         user : req.user,
                                         success_msg: success_msg,
                                         usernameEmail : usernameEmail,
@@ -260,12 +260,12 @@ const postRoute = function (app) {
                         let mailOptions = {
                             from: process.env.MAIL,
                             to: email,
-                            subject: 'Password Reset',
-                            text: 'Hello '+user.name+','+'\n\n'+
-                            'You recently requested to reset your password for your FreshShop account. Click the link below to reset it.'+'\n'+
+                            subject: 'Réinitialisation de ton mot de passe',
+                            text: 'Salut '+user.name+','+'\n\n'+
+                            'Tu reçois ce message car une demande de réinitialisation de ton mot de passe a été envoyé. Clique sur le lien ci-dessous pour changer ton mot de passe:'+'\n'+
                             'http://'+req.headers.host+'/resetPassword/'+token+'\n\n'+
-                            'If you did not request a password reset, please ignore this email. This password reset is only valid for the next 30 minutes.'+'\n\n'+
-                            'Thank you and stay FRESH!'
+                            "Si tu n'es pas à l'origine de cette demande, ignore cet email. Ce lien ne sera actif que pour les 30 prochaines minutes."+'\n\n'+
+                            'À bientôt sur Fernelmove!'
                         }
 
                         transporter.sendMail(mailOptions, (err, info)=>{
@@ -280,7 +280,7 @@ const postRoute = function (app) {
                             if (err) return res.send(500, err);
 
                             success_msg.push('Un e-mail a été envoyé sur ton email avec un lien de confirmation.')
-                            res.render('password', {
+                            res.render('login', {
                                 user : req.user,
                                 success_msg: success_msg,
                                 usernameEmail : usernameEmail,
@@ -327,7 +327,7 @@ const postRoute = function (app) {
 
                 User.findByIdAndUpdate(id, { resetPasswordToken: '', password: hashedPassword }, err => { // change the user's password
                     if (err) return res.send(500, err);
-                    req.flash('error','Ton mot de passe a été réinisialisé.')
+                    req.flash('success_msg','Ton mot de passe a été réinisialisé.')
                     res.redirect('/users/login');
                 });
             });
