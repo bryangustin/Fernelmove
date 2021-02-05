@@ -44,9 +44,33 @@
         <div class="up-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/' : '/users/login' %>><i class="far fa-thumbs-up text-danger"></i></a></div>
         <div class="down-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/' : '/users/login' %>><i class="far fa-thumbs-down text-danger"></i></a></div>
     </div>
-    <i class="far fa-question-circle" style="position: absolute;
-    top: 56px;
-    left: 209px;"></i>
 </div>
 
+<i class="far fa-question-circle" style="font-weight: bold;position: absolute;bottom: 20px;right: 25px;color: #940000;font-size: 47px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
 
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel"> Comment ça marche :</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>    
+                    Cette application est destinée aux jeunes entre 12 et 18 de la commune de Fernelmont pour suggérer, participer à des activités,  jouer et connaître mieux ta commune.
+                    Accueil: Tu peux voter pour une activité.
+                    Activité: Tu peux partager que tu participeras à l'activité proposée.
+                    Suggestion: Tu peux proposer une activité.
+                    Jeux: Tu peux jouer et mieux connaître ta commune et essayer d’échanger tes points. contre des tickets “Activity” payante.
+                    Plan: tu peux retrouver tes activités, et lieux d'échange mis à ta disposition.
+                    Compte: Tu peux organiser et voir ton profil.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #636262b9,">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
