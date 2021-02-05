@@ -29,7 +29,14 @@
     text-align: end;
 }
 
-
+.carousel-item .box-text-img button{
+    text-transform: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    background: #ff000038;
+    width: 100%;
+}
 
 @media only screen and (max-width: 551px) {
     #bulle {
