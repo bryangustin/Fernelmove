@@ -1,41 +1,4 @@
-<!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#carouselExampleControls" data-bs-slide-to="1"></li>
-        <li data-bs-target="#carouselExampleControls" data-bs-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="/images/peinture.jpg" class="d-block w-100 h-100 size-img-peinture" alt="...">
-            <div class="box-text-img">
-                <h2 class="img-titre-index">Artiste</h2>
-                <p class="img-text-index">Exposition d'un jeune artiste Fernelmontois, Pierrick Purnode</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="/images/piscine.jpg" class="d-block w-100 h-100 size-img-piscine" alt="...">
-            <div class="box-text-img">
-                <h2 class="img-titre-index">Piscine</h2>
-                <p class="img-text-index">Viens faire un plongeons à la piscine municipale de Fernelmont avec tout tes potes!</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="/images/cinema.jpg" class="d-block w-100 h-100 size-img-cinema" alt="...">
-            <div class="box-text-img">
-                <h2 class="img-titre-index">Outdoor cinéma</h2>
-                <p class="img-text-index">Projection du tout dernier film X-MEN</p>
-            </div>
-        </div>
-    </div>
-   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </a> 
-</div> -->
+
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <ol class="carousel-indicators">
         <li data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"></li>
@@ -43,8 +6,16 @@
         <li data-bs-target="#carouselExampleControls" data-bs-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
+        <h1 style="    z-index: 999;
+        position: absolute;
+        top: 136px;
+        left: 33px; color: white;
+        -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: red;
+        font-size: 54px;">Ensemble Choisissons !</h1>
         <div class="carousel-item active">
-            <img src="/images/piscine.jpg" class="d-block w-100 " alt="...">
+            <img src="/images/piscine.jpg" class="d-block w-100 " alt="piscine">
             
             <div class="box-text-img">
                 <h2 class="img-titre-index">Piscine</h2>
@@ -52,14 +23,14 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="/images/peinture.jpg" class="d-block w-100 " alt="...">
+            <img src="/images/peinture.jpg" class="d-block w-100 " alt="peinture">
             <div class="box-text-img">
                 <h2 class="img-titre-index">Artiste</h2>
                 <p class="img-text-index">Exposition d'un jeune artiste Fernelmontois, Pierrick Purnode</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="/images/cinema.jpg" class="d-block w-100 " alt="...">
+            <img src="/images/cinema.jpg" class="d-block w-100 " alt="cinema">
             <div class="box-text-img">
                 <h2 class="img-titre-index">Outdoor cinéma</h2>
                 <p class="img-text-index">Projection du tout dernier film X-MEN</p>
@@ -68,14 +39,10 @@
     </div>
 </div>
 
-<!-- <div class="vote_activite">
-    <a class="btn-vote" href="">VOTER</a>
-</div> -->
-
 <div class="vote_activite">
     <div class="thumbs-box">
-        <div class="up-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/vote' : '/users/login' %>><i class="far fa-thumbs-up text-danger"></i></a></div>
-        <div class="down-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/vote' : '/users/login' %>><i class="far fa-thumbs-down text-danger"></i></a></div>
+        <div class="up-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/' : '/users/login' %>><i class="far fa-thumbs-up text-danger"></i></a></div>
+        <div class="down-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/' : '/users/login' %>><i class="far fa-thumbs-down text-danger"></i></a></div>
     </div>
     <i class="far fa-question-circle" style="position: absolute;
     top: 56px;
