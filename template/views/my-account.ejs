@@ -1,9 +1,9 @@
 <div class="row My-account-box bodyMy-account">
-    <form class="col-6 col-sm-4 col-lg-4 m-auto" method="POST" action="/My-account">
+    <form id="accountForm" class="col-6 col-sm-4 col-lg-4 m-auto" method="POST" action="/My-account">
         <div class="box-container" style="width: 300px;height: 650px;overflow: scroll;">
             <div class="close"><a href="/">&times;</a></div>
             <h1>Mon compte</h1>
-            <img src="<%= ( user.sexe == 'boy') ? '/images/avatar/garcon.jpg' :(( user.sexe == 'girl') ? '/images/avatar/fille.jpg' : '/images/avatar/none.jpeg' ) %>" class="d-block " alt="avatar">
+            <img src="<%= ( user.sexe == 'boy') ? '/images/avatar/garcon.jpg' :(( user.sexe == 'girl') ? '/images/avatar/fille.jpg' : '/images/avatar/none.jpg' ) %>" class="d-block " alt="avatar">
             <p class="btn icon-btn btn-success avatarScore" href="#" style="margin-left: 25%;"><%= user.points %>  points !</p>
 
             <div class="mb-3 ">
@@ -22,42 +22,42 @@
             </div>            
             <div style="margin-top: 5%;">           
                 <div class="form-check align-items-center justify-content-center">
-                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="musique" value="musique"/>
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="musique" value="musique" <%= (user.intérêt.includes("musique")) ? 'checked' : '' %>/>
                     <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-music"></i> Musique</label>
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="jeux" value="jeux" />
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="jeux" value="jeux" <%= (user.intérêt.includes("jeux")) ? 'checked' : '' %>/>
                     <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-dice"></i> Jeux</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="cinema" value="cinema" />
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="cinema" value="cinema" <%= (user.intérêt.includes("cinema")) ? 'checked' : '' %>/>
                     <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-film"></i> Cinema</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="lecture" value="lecture" />
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="lecture" value="lecture" <%= (user.intérêt.includes("lecture")) ? 'checked' : '' %>/>
                     <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-book-reader"></i> Lecture</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="scout" value="scout" />
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="scout" value="scout" <%= (user.intérêt.includes("scout")) ? 'checked' : '' %>/>
                     <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-campground"></i> Scout</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="art" value="art" />
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="art" value="art" <%= (user.intérêt.includes("art")) ? 'checked' : '' %>/>
                     <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-paint-brush"></i> Art</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="sport" value="sport" />
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="sport" value="sport" <%= (user.intérêt.includes("sport")) ? 'checked' : '' %>/>
                     <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-running"></i> Sport</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="techno" value="techno" />
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="techno" value="techno" <%= (user.intérêt.includes("techno")) ? 'checked' : '' %>/>
                     <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-wifi"></i> Technologie</label>
                 </div>
                 <button type="submit" class="btn btn-primary m-auto mt-3">CONFIRMER</button>
                 <a href="/logout" class="btn btn-danger m-auto mt-3" style="color:white">deconnexion</a>
                 <br>
-                <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a> 
+                <a onclick="myFunction()" href="#" type="submit" style="text-decoration: none;color: black;">Supprimer mon compte</a> 
             </div>
         </div>
     </form>   
