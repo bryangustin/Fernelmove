@@ -50,7 +50,8 @@
     z-index: 999;
     left: 40px;
     color: white;
-    margin-block-start: -320px;}
+    top: 55%;
+}
 .date-activity,
 .lieu-activity,
 .img-text-index{

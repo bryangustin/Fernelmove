@@ -32,7 +32,7 @@ leoProfanity.add(frenchBadwordsList.array);
         
         transporter.sendMail({
             from: process.env.MAIL,
-            to: "makrai.yassin@gmail.com",
+            to: "chesnelnicolas800@gmail.com",
             subject: leoProfanity.clean(`${req.body.title}`),
             text: leoProfanity.clean(`${req.body.suggestion}`),
         }, function (error, info) {
