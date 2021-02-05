@@ -44,17 +44,18 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
+            <img src="/images/piscine.jpg" class="d-block w-100 " alt="...">
+            
+            <div class="box-text-img">
+                <h2 class="img-titre-index">Piscine</h2>
+                <p class="img-text-index">Viens faire un plongeons à la piscine municipale de Fernelmont avec tout tes amis!</p>
+            </div>
+        </div>
+        <div class="carousel-item">
             <img src="/images/peinture.jpg" class="d-block w-100 " alt="...">
             <div class="box-text-img">
                 <h2 class="img-titre-index">Artiste</h2>
                 <p class="img-text-index">Exposition d'un jeune artiste Fernelmontois, Pierrick Purnode</p>
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="/images/piscine.jpg" class="d-block w-100 " alt="...">
-            <div class="box-text-img">
-                <h2 class="img-titre-index">Piscine</h2>
-                <p class="img-text-index">Viens faire un plongeons à la piscine municipale de Fernelmont avec tout tes potes!</p>
             </div>
         </div>
         <div class="carousel-item">
@@ -76,6 +77,9 @@
         <div class="up-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/vote' : '/users/login' %>><i class="far fa-thumbs-up text-danger"></i></a></div>
         <div class="down-thumbs thumbs"><a href=<%= (typeof user != 'undefined') ? '/vote' : '/users/login' %>><i class="far fa-thumbs-down text-danger"></i></a></div>
     </div>
+    <i class="far fa-question-circle" style="position: absolute;
+    top: 56px;
+    left: 209px;"></i>
 </div>
 
 
