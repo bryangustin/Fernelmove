@@ -17,10 +17,21 @@ const postRoute = function (app) {
 
     //Register
     app.post('/register',(req,res)=>{
-        const {name,email, password, password2, sexe, postalCode} = req.body;
+        const {name,email, password, password2, sexe, postalCode, birthday} = req.body;
+        const {musique, jeux, cinema, lecture, scout, art, sport, techno} = req.body;
         let errors = [];
-        console.log(sexe);
-        if(!name || !email || !password || !password2 || !sexe || sexe === '' || !postalCode) {
+        let intérêt = [];
+        
+        (typeof musique != 'undefined') ? intérêt.push(musique):'';
+        (typeof jeux != 'undefined') ? intérêt.push(jeux):'';
+        (typeof cinema != 'undefined') ? intérêt.push(cinema):'';
+        (typeof lecture != 'undefined') ? intérêt.push(lecture):'';
+        (typeof scout != 'undefined') ? intérêt.push(scout):'';
+        (typeof art != 'undefined') ? intérêt.push(art):'';
+        (typeof sport != 'undefined') ? intérêt.push(sport):'';
+        (typeof techno != 'undefined') ? intérêt.push(techno):'';
+
+        if(!name || !email || !password || !password2 || !sexe || sexe === '' || !postalCode || !birthday) {
             errors.push({msg : "Il faut remplir tous les champs."})
         }
 
@@ -43,7 +54,9 @@ const postRoute = function (app) {
                 password : password,
                 password2 : password2,
                 sexe : sexe,
-                postalCode : postalCode
+                birthday : birthday,
+                postalCode : postalCode,
+                intérêt : intérêt
             })
         } else { //validation passed
             User.findOne({email : email}).exec((err,user)=>{
@@ -58,7 +71,9 @@ const postRoute = function (app) {
                         password : password,
                         password2 : password2,
                         sexe : sexe,
-                        postalCode : postalCode
+                        birthday : birthday,
+                        postalCode : postalCode,
+                        intérêt : intérêt
                     })
                 } else {
                     User.findOne({name : name}).exec((err,user)=>{
@@ -73,7 +88,9 @@ const postRoute = function (app) {
                                 password : password,
                                 password2 : password2,
                                 sexe : sexe,
-                                postalCode : postalCode
+                                birthday : birthday,
+                                postalCode : postalCode,
+                                intérêt : intérêt
                             })
                         } else {
                             const newUser = new User({
@@ -81,7 +98,9 @@ const postRoute = function (app) {
                                 email : email,
                                 password : password,
                                 sexe : sexe,
-                                postalCode : postalCode
+                                birthday : birthday,
+                                postalCode : postalCode,
+                                intérêt : intérêt
                             });
                 
                             //hash password
@@ -145,7 +164,6 @@ const postRoute = function (app) {
 
     // request password reset
     app.post('/password',(req,res)=>{
-        // console.log(req.body);
         const {usernameEmail} = req.body;
         let errors = [];
         let success_msg = [];
@@ -176,7 +194,6 @@ const postRoute = function (app) {
         
                             crypto.randomBytes(20, (err, buf) =>{
                                 let token = buf.toString('hex');
-                                console.log('token: '+token);
         
                                 let expire = Date.now() + 1800000; // 30 minutes
         
@@ -202,7 +219,7 @@ const postRoute = function (app) {
         
                                 transporter.sendMail(mailOptions, (err, info)=>{
                                     if (err){
-                                        // return console.log(err);
+                                        return console.log(err);
                                     }
                                 });
                                 ////////////
@@ -228,7 +245,6 @@ const postRoute = function (app) {
         
                     crypto.randomBytes(20, (err, buf) =>{
                         let token = buf.toString('hex');
-                        console.log('token: '+token);
 
                         let expire = Date.now() + 1800000; // 30 minutes
 
@@ -254,7 +270,7 @@ const postRoute = function (app) {
 
                         transporter.sendMail(mailOptions, (err, info)=>{
                             if (err){
-                                // return console.log(err);
+                                return console.log(err);
                             }
                         });
                         ////////////
