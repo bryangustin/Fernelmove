@@ -66,8 +66,8 @@ app.use((req,res,next)=> {
 
 ///// GET Routes /////
 mainRouter(app, '/', 'index');
-mainRouter(app, '/password', 'password');
-mainRouter(app, '/resetPassword/:token', 'resetPassword', 'reset');
+mainRouter(app, '/password', 'password','popOver');
+mainRouter(app, '/resetPassword/:token', 'resetPassword', 'popOver','reset');
 mainRouter(app, '/users/login', 'login', 'popOver');
 mainRouter(app, '/users/register', 'register', 'popOver');
 mainRouter(app, '/users/my-account', 'my-account','logged');
