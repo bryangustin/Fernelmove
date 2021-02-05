@@ -42,6 +42,10 @@ const UserSchema  = new mongoose.Schema({
         type  : String
     },
 
+    intérêt :{
+        type  : Array
+    },
+
     password :{
         type  : String,
         required : true
