@@ -1,5 +1,5 @@
 # Fernelmove
-===========
+
 
 **Demo**
 ----
@@ -42,12 +42,12 @@ Remember me
 
 **Screenshot**
 -----------
-Inline-style: 
-![register]('/public/images/screenshot/register.jpg')
-![login]('public/images/login.jpg')
-![home page]('public/images/suggestion-cinema.jpg')
-![activity]('public/images/activity-fifa.jpg')
-![suggestion]('public/images/suggestion-form.jpg')
-![quiz]('public/images/quiz.jpg')
-![map]('public/images/map.jpg')
-![account]('public/images/account.jpg')
+
+![register]('https://github.com/bryangustin/Fernelmove/blob/main/public/images/register.jpg')
+![login]('https://github.com/bryangustin/Fernelmove/blob/main/public/images/login.jpg')
+![home page]('https://github.com/bryangustin/Fernelmove/blob/main/public/images/suggestion-cinema.jpg')
+![activity]('https://github.com/bryangustin/Fernelmove/blob/main/public/images/activity-fifa.jpg')
+![suggestion]('https://github.com/bryangustin/Fernelmove/blob/main/public/images/suggestion-form.jpg')
+![quiz]('https://github.com/bryangustin/Fernelmove/blob/main/public/images/quiz.jpg')
+![map]('https://github.com/bryangustin/Fernelmove/blob/main/public/images/map.jpg')
+![account]('https://github.com/bryangustin/Fernelmove/blob/main/public/images/account.jpg')
