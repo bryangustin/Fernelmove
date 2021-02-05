@@ -1,78 +1,11 @@
 <div class="row My-account-box bodyMy-account">
     <form class="col-6 col-sm-4 col-lg-4 m-auto" method="POST" action="/My-account">
-        <div class="box-container">
+        <div class="box-container" style="width: 300px;height: 650px;overflow: scroll;">
             <div class="close"><a href="/">&times;</a></div>
             <h1>Mon compte</h1>
             <img src="<%= ( user.sexe == 'boy') ? '/images/avatar/garcon.jpg' :(( user.sexe == 'girl') ? '/images/avatar/fille.jpg' : '/images/avatar/none.jpeg' ) %>" class="d-block " alt="avatar">
             <p class="btn icon-btn btn-success avatarScore" href="#" style="margin-left: 25%;"><%= user.points %>  points !</p>
 
-<div class="row">
-        
-    <form class="col-6 col-sm-4 col-lg-4 m-auto">
-        <h1>COMPTE</h1>
-        <img src="/images/fille.jpg" class="d-block w-100 h-100" alt="...">
-
-        <!-- <div class="text-center">
-            <img src="/images/prof.png" class="rounded" alt="...">
-            <img src="/images/prof.png" class="rounded-circle" alt="Cinque Terre"> 
-        </div> -->
-        <div class="mb-3 ">
-            <label for="InputUsername" class="form-label">Ton pseudo</label>
-            <input type="text" class="form-control" id="InputUsername" placeholder="<%= user.name %>">
-        </div>
-        <div class="mb-3 ">
-            <label for="InputEmail" class="form-label">Ton adresse Email</label>
-            <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="<%= user.email %>">
-        </div>
-        <div class="mb-3">
-            <label for="InputText" class="form-label">statut</label>
-            <input type="text" class="form-control" id="InputText" placeholder="<%= (typeof statut != 'undefined') ? user.statut : 'statut' %> ">
-        </div>
-    
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-             <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-music"></i> Musique</label>
-            </div>
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-             <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-dice"></i> Jeux</label>
-            </div>
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-             <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-film"></i> Cinema</label>
-            </div>
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-             <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-book-reader"></i> Lecture</label>
-            </div>
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-             <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-campground"></i> Scout</label>
-            </div>
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-             <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-paint-brush"></i> Art</label>
-            </div>
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-             <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-running"></i> Sport</label>
-            </div>
-            <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-             <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-wifi"></i> Technologie</label>
-            </div>
-        </div>
-
-    </div>
-
-    
-    
-    
-    
-    
-
-    
-</div>
             <div class="mb-3 ">
                 <label for="InputUsername" class="form-label">Ton pseudo</label>
                 <input type="text" class="form-control" id="InputUsername" placeholder="<%= user.name %>">
@@ -86,137 +19,46 @@
             <div class="mb-3">
                 <label for="InputText" class="form-label">statut</label>
                 <input type="text" class="form-control" id="InputText" placeholder="<%=(typeof statut != 'undefined') ? user.statut : 'statut' %> ">
-            </div>
-<button type="submit" class="btn btn-primary m-auto">CONFIRMER</button>
-            <button type="submit" class="btn btn-primary m-auto">CONFIRMER</button>        
-<button type="submit" class="btn btn-primary m-auto">CONFIRMER</button>
-<a href="/logout" class="btn btn-danger m-auto" style="color:white">deconnexion</a>
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
-            <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>        
-<a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a>
+            </div>            
+            <div style="margin-top: 5%;">           
+                <div class="form-check align-items-center justify-content-center">
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="musique" value="musique"/>
+                    <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-music"></i> Musique</label>
+                </div>
 
+                <div class="form-check">
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="jeux" value="jeux" />
+                    <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-dice"></i> Jeux</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="cinema" value="cinema" />
+                    <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-film"></i> Cinema</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="lecture" value="lecture" />
+                    <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-book-reader"></i> Lecture</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="scout" value="scout" />
+                    <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-campground"></i> Scout</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="art" value="art" />
+                    <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-paint-brush"></i> Art</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="sport" value="sport" />
+                    <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-running"></i> Sport</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input position-interet" type="checkbox" id="flexCheckDefault" name="techno" value="techno" />
+                    <label class="form-check-label" for="flexCheckDefault"><i class="fas fa-wifi"></i> Technologie</label>
+                </div>
+                <button type="submit" class="btn btn-primary m-auto mt-3">CONFIRMER</button>
+                <a href="/logout" class="btn btn-danger m-auto mt-3" style="color:white">deconnexion</a>
+                <br>
+                <a href="/delete-account" style="text-decoration: none;color: black;">Supprimer mon compte</a> 
+            </div>
         </div>
-</form>
     </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
-    </form>   
-</form>
 </div>
