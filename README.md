@@ -4,7 +4,14 @@
 **Demo**
 ----
 This website only works on Iphone X devices. We are working on other devices.
-This web application was created to help the city of Fernelmont, as part of a hackathon, to better communicate with the teenagers of the region, in order to have an easy and digital way to know what is going on in their municipality; activities offered by local organizations, local stores, sports clubs, but also so that they can participate and offer activities and be heard by their municipality. 
+This web application was created to help the city of Fernelmont(BELGIUM), as part of a hackathon, to better communicate with the teenagers of the region, in order to have an easy and digital way to know what is going on in their municipality; activities offered by local organizations, local stores, sports clubs, but also so that they can participate and offer activities and be heard by their municipality.
+
+Caution: if you want to watch the live demo on the computer please follow the steps below.
+1. Open your web inspector.
+2. Preview the demo with the size "Iphone X" (425x815).
+[Fernelmove](https://fernelmove.herokuapp.com/)
+
+
 
 **Instructions**
 ------------
@@ -15,7 +22,7 @@ Map: you can find your activity, and the local stores
 Account: you can personalize your avatar, add a statut and change your interests.
 
 
-**Must have**
+**Features**
 -------
 Insults filter through comments,
 Request for activities,
@@ -28,10 +35,10 @@ Create an account, and click on your interests so that the site sorts the activi
 Reset password by email
 
 
-**Nice to have**
+**Upgrade**
 ------------
-Tchat
-Work on every device
+Chat
+All screens responsiveness
 Collect and use more data
 More avatar available to personalize your account
 More center of interest
