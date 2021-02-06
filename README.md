@@ -38,10 +38,15 @@ Reset password by email
 **Upgrade**
 ------------
 Chat
-All screens responsiveness
+
+Responsive to all screens sizes
+
 Collect and use more data
+
 More avatar available to personalize your account
+
 More center of interest
+
 Remember me
 
 
