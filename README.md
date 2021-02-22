@@ -1,5 +1,9 @@
 # Fernelmove
 
+**Why?!**
+----
+As part of the Hack Your City hackaton, we worked in collaboration with the city of Fernelmont, in order to develop a platform that connects young people aged 12 to 18 years old with their municipal administration as well as all the activities offered by the city.
+Given the target, we have developed a mobile first oriented web app called "Fernel-move".
 
 **Demo**
 ----
